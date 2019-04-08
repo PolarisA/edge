@@ -6,7 +6,7 @@
 import {
   ADD,
   DELETE,
-  RELOAD,
+  LOAD_LIST
 } from '../constants/todos'
 
 export const add = (data) => {
@@ -23,9 +23,11 @@ export const del = (id) => {
   }
 }
 
-export const load = (payload) => {
+export const loadList = (payload) => {
+  console.log("=== action payload -=-> ",payload)
   return {
     payload,
-    type: RELOAD,
+    type: LOAD_LIST,
   }
 }
+

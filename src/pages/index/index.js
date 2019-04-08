@@ -3,11 +3,12 @@ import {
   View,
   Input,
   Text,
-  Image
+  Image,
+  Button
 } from '@tarojs/components'
 
 import { connect } from '@tarojs/redux'
-import { add, del } from '../../actions/index'
+import { add, del, loadList } from '../../actions/index'
 import './index.scss'
 
 class Index extends Component {
@@ -15,8 +16,8 @@ class Index extends Component {
     navigationBarTitleText: '首页'
   }
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
       newTodo: ''
@@ -51,6 +52,14 @@ class Index extends Component {
 
   onBtnClick() {
     console.log("==== onBtnClick ")
+    const { loadList } = this.props
+    const params = {
+      page: 0,
+      pageSize: 10,
+      token: 'XXOO',
+    }
+
+    loadList(params)
   }
 
   render() {
@@ -61,36 +70,32 @@ class Index extends Component {
 
     return (
       <View className='page-homepage'>
-        <Text>
-          hello Index
-        </Text>
+        <View className='page-top'>
+          <Text className='page-top-txt'>
+            hello Index
+          </Text>
+        </View>
+
+
+        <Button className='home-btn' onClick={this.onBtnClick.bind(this)}>
+          <Text className='home-btn-txt'>hello</Text>
+        </Button>
+
       </View>
     )
   }
 }
 
 export default connect(({ todos }) => ({
-  todos: todos.todos
+  todos: todos.todos,
 }), (dispatch) => ({
   add(data) {
     dispatch(add(data))
   },
   del(id) {
     dispatch(del(id))
+  },
+  loadList(payload) {
+    dispatch(loadList(payload))
   }
 }))(Index)
-
-
-// <View className='page page-index'>
-//   <View className='logo'>
-//   <Image src={logoImg} className='img' mode='widthFix' />
-//   </View>
-//
-// <View className='page-title'>Taro UI</View>
-// <View className='add_wrap'>
-//   <Input placeholder="填写新的todo" onBlur={this.saveNewTodo.bind(this)} value={newTodo}/>
-// <View className='add' onClick={this.addTodo.bind(this)}>+</View>
-// </View>
-// <View>{todosJsx}</View>
-//
-// </View>

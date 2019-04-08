@@ -5,4 +5,4 @@
  **/
 export const ADD = 'ADD'
 export const DELETE = 'DELETE'
-export const RELOAD = 'RELOAD'
+export const LOAD_LIST = 'LOAD_LIST'

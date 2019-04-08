@@ -5,7 +5,7 @@
  **/
 
 import { combineReducers } from 'redux'
-import { ADD, DELETE } from '../constants/todos'
+import { ADD, DELETE, LOAD_LIST } from '../constants/todos'
 
 // 定义初始状态
 const INITIAL_STATE = {
@@ -39,17 +39,18 @@ function todos(state = INITIAL_STATE, action) {
         ...state,
         todos: newTodos
       }
+
+    case LOAD_LIST:
+      console.log("==== todos action -=--> ",action)
+      return{
+        ...state,
+        loading: true,
+      }
+
+
     default:
       return state
   }
-}
-
-function loadLits(state = INITIAL_STATE, action) {
-
-  console.log("==== action ")
-  // switch (action.type) {
-  //
-  // }
 }
 
 export default combineReducers({
