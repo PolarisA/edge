@@ -1,0 +1,10 @@
+@import "./assets/css/theme.scss";
+@import "~taro-ui/dist/style/index.scss";
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
