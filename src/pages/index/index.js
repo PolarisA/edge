@@ -54,9 +54,8 @@ class Index extends Component {
     console.log("==== onBtnClick ")
     const { loadList } = this.props
     const params = {
-      page: 0,
-      pageSize: 10,
-      token: 'XXOO',
+      type: 'top',
+      token: '53de1c4a77103216d16e07dc863f6428',
     }
 
     loadList(params)
@@ -78,7 +77,7 @@ class Index extends Component {
 
 
         <Button className='home-btn' onClick={this.onBtnClick.bind(this)}>
-          <Text className='home-btn-txt'>hello</Text>
+          <Text className='home-btn-txt'>Load Data</Text>
         </Button>
 
       </View>

@@ -5,7 +5,10 @@
  **/
 
 import { combineReducers } from 'redux'
+import { loadListServer } from '../service/home'
 import { ADD, DELETE, LOAD_LIST } from '../constants/todos'
+
+const { regeneratorRuntime } = global
 
 // 定义初始状态
 const INITIAL_STATE = {
@@ -41,10 +44,13 @@ function todos(state = INITIAL_STATE, action) {
       }
 
     case LOAD_LIST:
-      console.log("==== todos action -=--> ",action)
-      return{
+      console.log("==== todos action -=--> ", action)
+
+      // const data = loadHomeList(action.payload)
+      return {
         ...state,
         loading: true,
+        // data
       }
 
 
@@ -52,6 +58,14 @@ function todos(state = INITIAL_STATE, action) {
       return state
   }
 }
+
+const loadHomeList = async function (payload) {
+
+  const { data } = await loadListServer(payload)
+  console.log("==== loadHomeList data -=--> ", data)
+  return data
+}
+
 
 export default combineReducers({
   todos

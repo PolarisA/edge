@@ -4,7 +4,7 @@
  * @Description :
  **/
 import Taro from '@tarojs/taro';
-import { baseUrl, noConsole } from '../constants/config';
+import { baseUrl, topList, noConsole } from '../constants/config';
 
 const request_data = {
   platform: 'wap',
@@ -16,7 +16,7 @@ export default (options = { method: 'GET', data: {} }) => {
     console.log(`${new Date().toLocaleString()}【 M=${options.url} 】P=${JSON.stringify(options.data)}`);
   }
   return Taro.request({
-    url: baseUrl + options.url,
+    url: topList + options.url,
     data: {
       ...request_data,
       ...options.data,
