@@ -89,3 +89,9 @@ export const logError = (name, action, info) => {
     info = JSON.stringify(info)
   }
 }
+
+export const delay = function (time) {
+  return new Promise(function (r) {
+    setTimeout(r, time)
+  });
+}

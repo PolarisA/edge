@@ -1,12 +1,21 @@
 import Taro, { Component } from '@tarojs/taro'
 import { Provider } from '@tarojs/redux'
-
-import configStore from './store'
+import dva from './utils/dva'
+import models from './model'
+import action from './utils/action'
 import Index from './pages/index'
 
 import './app.scss'
 
-const store = configStore()
+
+const dvaApp = dva.createApp({
+  initialState: {},
+  models: models,
+  onError(e, dispatch) {
+    dispatch(action("sys/error", e));
+  },
+});
+const store = dvaApp.getStore();
 
 class App extends Component {
 
@@ -18,39 +27,41 @@ class App extends Component {
     ],
     window: {
       backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#fff',
+      navigationBarBackgroundColor: '#0068C4',
       navigationBarTitleText: 'WeChat',
-      navigationBarTextStyle: 'black'
+      navigationBarTextStyle: 'white',
+      enablePullDownRefresh: true
     },
     tabBar: {
+      color: "#626567",
+      selectedColor: "#2A8CE5",
+      backgroundColor: "#FBFBFB",
+      borderStyle: "white",
       list: [
         {
           pagePath: 'pages/index/index',
-          text: '位置',
-          iconPath: './images/tab/home.png',
-          selectedIconPath: './images/tab/home-active.png',
+          text: "首页",
+          iconPath: "./images/tab/index.png",
+          selectedIconPath: "./images/tab/index_focus.png"
         },
         {
           pagePath: 'pages/subscribe/index',
-          text: '预约',
-          iconPath: './images/tab/cart.png',
-          selectedIconPath: './images/tab/cart-active.png',
+          text: "发现",
+          iconPath: "./images/tab/discovery.png",
+          selectedIconPath: "./images/tab/discovery_focus.png"
         },
         {
           pagePath: 'pages/mine/index',
-          text: '我的',
-          iconPath: './images/tab/user.png',
-          selectedIconPath: './images/tab/user-active.png',
+          text: "我的",
+          iconPath: "./images/tab/burger.png",
+          selectedIconPath: "./images/tab/burger_focus.png"
         },
       ],
-      color: '#333',
-      selectedColor: '#333',
-      backgroundColor: '#fff',
-      borderStyle: 'white',
     },
   }
 
   componentDidMount() {
+    // dvaApp.dispatch({ type: 'sys/test' })
   }
 
   componentDidShow() {

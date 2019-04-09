@@ -13,8 +13,10 @@ import './index.scss'
 
 class Index extends Component {
   config = {
-    navigationBarTitleText: '首页'
-  }
+    navigationBarTitleText: '首页',
+    enablePullDownRefresh: true,
+    backgroundTextStyle: "dark",
+  };
 
   constructor(props) {
     super(props)
