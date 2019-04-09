@@ -1,31 +1,19 @@
-/**
- * @Author : HuiWen
- * @Date : 2019-04-08
- * @Description :
- **/
 import Taro from '@tarojs/taro';
-import { baseUrl, topList, noConsole } from '../constants/config';
-
-const request_data = {
-  platform: 'wap',
-  rent_mode: 2,
-};
+import { movieList, baseUrl, noConsole } from '../constants/config';
 
 export default (options = { method: 'GET', data: {} }) => {
   if (!noConsole) {
     console.log(`${new Date().toLocaleString()}【 M=${options.url} 】P=${JSON.stringify(options.data)}`);
   }
   return Taro.request({
-    url: topList + options.url,
-    data: {
-      ...request_data,
-      ...options.data,
-    },
-    header: {
+    url: movieList + `/v2/movie/in_theaters` + options.url,
+    // data: options.data,
+    data: '',
+    headers: {
       'Content-Type': 'application/json',
     },
     method: options.method.toUpperCase(),
-  }).then(res => {
+  }).then((res) => {
     const { statusCode, data } = res;
     if (statusCode >= 200 && statusCode < 300) {
       if (!noConsole) {
@@ -42,5 +30,5 @@ export default (options = { method: 'GET', data: {} }) => {
     } else {
       throw new Error(`网络请求错误，状态码${statusCode}`);
     }
-  });
-};
+  })
+}

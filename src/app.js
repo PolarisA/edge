@@ -6,7 +6,6 @@ import Index from './pages/index'
 
 import './app.scss'
 
-global.regeneratorRuntime = require('./lib/regenerator/runtime-module')
 const store = configStore()
 
 class App extends Component {

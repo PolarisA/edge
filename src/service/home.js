@@ -8,13 +8,14 @@ import Request from '../utils/request'
 
 export const loadListServer = (data) => {
   const {
-    type,
-    token,
+    apikey,
+    city,
   } = data
 
-  const params = {
-    url: `type=${type}&key=${token}`,
+  const restful = {
+    url: `?apikey=${apikey}&city=${city}`,
     method: 'GET',
   }
-  return Request(params)
+
+  return Request(restful)
 }

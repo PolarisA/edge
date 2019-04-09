@@ -1,10 +1,4 @@
 /**
- * @Author : HuiWen
- * @Date : 2019-04-08
- * @Description :
- **/
-
-/**
  * Copyright (c) 2014-present, Facebook, Inc.
  *
  * This source code is licensed under the MIT license found in the

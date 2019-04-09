@@ -23,11 +23,35 @@ export const promisify = (func, ctx) => {
   };
 };
 
+// 下载图片
+export const downLoadImg = (imgurl, msg) => {
+  return new Promise((resolve, reject) => {
+    let that = this
+    // util.showToast(msg + 'download...')
+    wx.downloadFile({
+      url: imgurl,
+      complete: function (res) {
+        console.log(res)
+        if (res.statusCode === 200) {
+          resolve(res.tempFilePath)
+        } else {
+          console.log('downloadstatusCode', res)
+          reject(new Error(res))
+        }
+      },
+      fail: function (res) {
+        console.log('downloadFilefail', res)
+      }
+    })
+  })
+}
+
 export const promiseImage = (url) => {
   return new Promise(function (resolve, reject) {
     resolve(url)
   })
 }
+
 export const isChinese = (str) => {
   if (escape(str).indexOf("%u") < 0) return false
   return true
@@ -54,6 +78,16 @@ export const getCurrentPageUrl = () => {
   return url
 }
 
+export const getSysteminfo = () => {
+  try {
+    let deviceInfo = wx.getSystemInfoSync()
+    const device = JSON.stringify(deviceInfo)
+  } catch (e) {
+    console.error('not support getSystemInfoSync api', err.message)
+  }
+  return device
+}
+
 export const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -68,24 +102,4 @@ export const formatTime = date => {
 export const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
-}
-export const logError = (name, action, info) => {
-  if (!info) {
-    info = 'empty'
-  }
-  try {
-    let deviceInfo = wx.getSystemInfoSync()
-    var device = JSON.stringify(deviceInfo)
-  } catch (e) {
-    console.error('not support getSystemInfoSync api', err.message)
-  }
-  let time = formatTime(new Date())
-  console.error(time, name, action, info, device)
-  // if (typeof action !== 'object') {
-  // fundebug.notify(name, action, info)
-  // }
-  // fundebug.notifyError(info, { name, action, device, time })
-  if (typeof info === 'object') {
-    info = JSON.stringify(info)
-  }
 }

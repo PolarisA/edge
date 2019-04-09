@@ -54,8 +54,8 @@ class Index extends Component {
     console.log("==== onBtnClick ")
     const { loadList } = this.props
     const params = {
-      type: 'top',
-      token: '53de1c4a77103216d16e07dc863f6428',
+      apikey: '0b2bdeda43b5688921839c8ecb20399b',
+      city: '北京',
     }
 
     loadList(params)
