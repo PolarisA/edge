@@ -1,11 +1,10 @@
 import Taro from '@tarojs/taro'
 import { HTTP_STATUS } from '../constants/status'
 import { logError } from '../utils'
+import { movieList, baseUrl, noConsole } from '../constants/config';
 
-const base = "https://api.douban.com/v2/movie/in_theaters"
-
+const base = "https://api.douban.com/v2/movie/"
 const token = ''
-
 
 export default {
   baseOptions(params, method = 'GET') {
@@ -14,7 +13,9 @@ export default {
     // if (!token) login()
     console.log('params', params)
     let contentType = 'application/x-www-form-urlencoded'
+    let contentJSON = 'json'
     contentType = params.contentType || contentType
+
     const option = {
       isShowLoading: false,
       loadingText: '正在加载...',
@@ -38,6 +39,15 @@ export default {
       }
     }
     return Taro.request(option)
+      .then((res) => {
+        const { statusCode, data } = res
+        if (statusCode >= 200 && statusCode < 300) {
+          console.log(`>>>> ${new Date().toLocaleString()}\n>>>>【 M=${option.url} 】\n>>>>【接口响应：】`, res.data);
+          return data;
+        } else {
+          throw new Error(`网络请求错误，状态码${statusCode}`);
+        }
+      })
   },
   get(url, data = '') {
     let option = { url, data }

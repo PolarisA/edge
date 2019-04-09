@@ -4,18 +4,11 @@
  * @Description :
  **/
 
-import Request from '../utils/request'
+import api from '../service/api'
 
-export const loadListServer = (data) => {
-  const {
-    apikey,
-    city,
-  } = data
+const regeneratorRuntime = require('../lib/regenerator/runtime.js')
 
-  const restful = {
-    url: `?apikey=${apikey}&city=${city}`,
-    method: 'GET',
-  }
-
-  return Request(restful)
+export const getHomeList = async function (params) {
+  const { apikey, city } = params
+  return api.get(`in_theaters?apikey=${apikey}&city=${city}`)
 }
