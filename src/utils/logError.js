@@ -1,4 +1,5 @@
-import { getCurrentPageUrl, formatTime } from './common'
+import { getCurrentPageUrl, formatTime } from '../utils'
+
 /**
  *
  * @param {string} name 错误名字
@@ -12,7 +13,7 @@ export const logError = (name, action, info) => {
   try {
     var device = JSON.stringify(deviceInfo)
   } catch (e) {
-    console.error('not support getSystemInfoSync api', err.message)
+    console.error('not support getSystemInfoSync api', e.message)
   }
   let time = formatTime(new Date())
   console.error(time, name, action, info, device)

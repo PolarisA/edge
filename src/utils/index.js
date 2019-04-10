@@ -122,3 +122,42 @@ export const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
+
+
+/**
+ * 判断是否为空
+ * @param obj
+ * @returns {boolean}
+ */
+export const isEmpty = (obj) => {
+  if (obj === null)
+    return true;
+
+  if (obj === undefined)
+    return true;
+
+  if (obj.length > 0)
+    return false;
+
+  if (obj.length === 0)
+    return true;
+
+  for (let key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key))
+      return true
+  }
+
+  return true;
+};
+
+/**
+ * 判断obj是否为空
+ * @param e
+ * @returns {boolean}
+ */
+export const isEmptyObject = (e) => {
+  var t;
+  for (t in e)
+    return false;
+  return true
+};

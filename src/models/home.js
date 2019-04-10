@@ -1,33 +1,48 @@
-import { delay } from '../utils'
+import { delay, isEmpty, isEmptyObject } from '../utils'
 import { getHomeList } from '../service/home'
-
-const regeneratorRuntime = require('../lib/regenerator/runtime.js')
 
 export default {
   namespace: 'home',
   state: {
-    num: 0,
     loading: false,
+    subjects: [],
+    count: 0,
+    total: 1,
+    title: '',
   },
+
   effects: {
-    async asyncAdd({ payload }, { call, put }) {
-      await put({ type: 'showLoading' })
+    async loadList(action, { call, put }) {
+      await put({ type: 'setLoading' })
 
+      const restFul = await getHomeList(action.payload)
 
-      console.log("=== asyncAdd payload -=--> ", payload)
-
+      if (!isEmptyObject(restFul)) {
+        await put({
+          type: 'loadListSucc',
+          payload: restFul,
+        })
+      } else {
+        await put({
+          type: 'setLoad'
+        })
+      }
     },
-
   },
+
   reducers: {
-    showLoading(state) {
+    setLoading(action, state) {
       return { ...state, loading: true }
     },
-    add(action, state) {
-      return { ...state, num: state.num + 1 }
+
+    setLoad(action, state) {
+      return { ...state, loading: false }
     },
-    minus(action, state) {
-      return { ...state, num: state.num - 1 }
+
+    loadListSucc(action, state) {
+      console.log("=== loadListSucc action -=-> ", action.payload)
+
+      return { ...state, ...action.payload, loading: false }
     },
   },
 }

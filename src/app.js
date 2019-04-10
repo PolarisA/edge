@@ -5,12 +5,28 @@ import { Provider } from '@tarojs/redux'
 import Index from './pages/index'
 
 import zoro from '@opcjs/zoro' // 引入zoro
+import { createLoading } from '@opcjs/zoro-plugin'
 import models from './models/index'
+import mixins from './mixins'
 
 import './app.scss'
 
-const app = zoro()
+const app = zoro({
+  onError(error) {
+    if (error.message) {
+      Taro.showToast({
+        icon: 'none',
+        title: error.message,
+        duration: 2000,
+      })
+    }
+  }
+})
+
+app.use(mixins)
+app.use(createLoading())
 app.model(models)
+
 const store = app.start(false)
 
 class App extends Component {
