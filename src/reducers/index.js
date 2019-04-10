@@ -1,15 +1,9 @@
-/**
- * @Author : HuiWen
- * @Date : 2019-04-08
- * @Description :
- **/
-
 import { combineReducers } from 'redux'
-import { loadListServer } from '../service/home'
+import { getHomeList } from '../service/home'
 import { ADD, DELETE, LOAD_LIST } from '../constants/todos'
-import api from '../service/api'
 
 const regeneratorRuntime = require('../lib/regenerator/runtime.js')
+
 // 定义初始状态
 const INITIAL_STATE = {
   todos: [
@@ -44,9 +38,7 @@ function todos(state = INITIAL_STATE, action) {
       }
 
     case LOAD_LIST:
-      console.log("==== todos action -=--> ", action)
-
-      const data = loadHomeList(action.payload)
+      
       return {
         ...state,
         loading: true,
@@ -58,16 +50,6 @@ function todos(state = INITIAL_STATE, action) {
       return state
   }
 }
-
-const loadHomeList = async function (payload) {
-  console.log("==== loadHomeList payload -=--> ", payload)
-  // const { data } = await loadListServer(payload)
-
-  const res = await api.get('?apikey=0b2bdeda43b5688921839c8ecb20399b&city=北京')
-  console.log("==== loadHomeList res -=--> ", res)
-  return res
-}
-
 
 export default combineReducers({
   todos
