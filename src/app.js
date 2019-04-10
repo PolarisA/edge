@@ -1,12 +1,17 @@
+import '@tarojs/async-await'
 import Taro, { Component } from '@tarojs/taro'
 import { Provider } from '@tarojs/redux'
 
-import configStore from './store'
 import Index from './pages/index'
+
+import zoro from '@opcjs/zoro' // 引入zoro
+import models from './models/index'
 
 import './app.scss'
 
-const store = configStore()
+const app = zoro()
+app.model(models)
+const store = app.start(false)
 
 class App extends Component {
   config = {
@@ -48,6 +53,10 @@ class App extends Component {
         },
       ],
     },
+  }
+
+  componentDidMount() {
+    app.setup()
   }
 
   // 在 App 类中的 render() 函数没有实际作用
