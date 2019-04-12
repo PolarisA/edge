@@ -1,21 +1,6 @@
-/**
- * @Author : HuiWen
- * @Date : 2019-04-08
- * @Description :
- **/
+import api from '../service/api'
 
-import Request from '../utils/request'
-
-export const loadListServer = (data) => {
-  const {
-    apikey,
-    city,
-  } = data
-
-  const restful = {
-    url: `?apikey=${apikey}&city=${city}`,
-    method: 'GET',
-  }
-
-  return Request(restful)
+export const getHomeList = async function (params) {
+  const { apikey, city } = params
+  return api.get(`in_theaters?apikey=${apikey}&city=${city}`)
 }

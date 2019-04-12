@@ -33,16 +33,6 @@ export const isChinese = (str) => {
   return true
 }
 
-export const handleName = (str) => {
-  let res = emoj2str(str)
-  if (isChinese(res)) {
-    res = res.length > 4 ? res.slice(0, 4) + '...' : res
-  } else {
-    res = res.length > 7 ? res.slice(0, 7) + '...' : res
-  }
-  return res
-}
-
 export const emoj2str = (str) => {
   return unescape(escape(str).replace(/\%uD.{3}/g, ''))
 }
@@ -65,10 +55,13 @@ export const formatTime = date => {
   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
-export const formatNumber = n => {
-  n = n.toString()
-  return n[1] ? n : '0' + n
+export const delay = (time) => {
+  return new Promise(resolve => {
+    setTimeout(resolve, time)
+  })
 }
+
+
 export const logError = (name, action, info) => {
   if (!info) {
     info = 'empty'
@@ -77,7 +70,7 @@ export const logError = (name, action, info) => {
     let deviceInfo = wx.getSystemInfoSync()
     var device = JSON.stringify(deviceInfo)
   } catch (e) {
-    console.error('not support getSystemInfoSync api', err.message)
+    console.error('not support getSystemInfoSync api', e.message)
   }
   let time = formatTime(new Date())
   console.error(time, name, action, info, device)
@@ -89,3 +82,82 @@ export const logError = (name, action, info) => {
     info = JSON.stringify(info)
   }
 }
+
+
+// 下载图片
+export const downLoadImg = (imgurl, msg) => {
+  return new Promise((resolve, reject) => {
+    let that = this
+    // util.showToast(msg + 'download...')
+    wx.downloadFile({
+      url: imgurl,
+      complete: function (res) {
+        console.log(res)
+        if (res.statusCode === 200) {
+          resolve(res.tempFilePath)
+        } else {
+          console.log('downloadstatusCode', res)
+          reject(new Error(res))
+        }
+      },
+      fail: function (res) {
+        console.log('downloadFilefail', res)
+      }
+    })
+  })
+}
+
+export const handleName = (str) => {
+  let res = emoj2str(str)
+  if (isChinese(res)) {
+    res = res.length > 4 ? res.slice(0, 4) + '...' : res
+  } else {
+    res = res.length > 7 ? res.slice(0, 7) + '...' : res
+  }
+  return res
+}
+
+
+export const formatNumber = n => {
+  n = n.toString()
+  return n[1] ? n : '0' + n
+}
+
+
+/**
+ * 判断是否为空
+ * @param obj
+ * @returns {boolean}
+ */
+export const isEmpty = (obj) => {
+  if (obj === null)
+    return true;
+
+  if (obj === undefined)
+    return true;
+
+  if (obj.length > 0)
+    return false;
+
+  if (obj.length === 0)
+    return true;
+
+  for (let key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key))
+      return true
+  }
+
+  return true;
+};
+
+/**
+ * 判断obj是否为空
+ * @param e
+ * @returns {boolean}
+ */
+export const isEmptyObject = (e) => {
+  var t;
+  for (t in e)
+    return false;
+  return true
+};

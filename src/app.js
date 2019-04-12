@@ -1,15 +1,35 @@
+import '@tarojs/async-await'
 import Taro, { Component } from '@tarojs/taro'
 import { Provider } from '@tarojs/redux'
 
-import configStore from './store'
 import Index from './pages/index'
+
+import zoro from '@opcjs/zoro' // 引入zoro
+import { createLoading } from '@opcjs/zoro-plugin'
+import models from './models/index'
+import mixins from './mixins'
 
 import './app.scss'
 
-const store = configStore()
+const app = zoro({
+  onError(error) {
+    if (error.message) {
+      Taro.showToast({
+        icon: 'none',
+        title: error.message,
+        duration: 2000,
+      })
+    }
+  }
+})
+
+app.use(mixins)
+app.use(createLoading())
+app.model(models)
+
+const store = app.start(false)
 
 class App extends Component {
-
   config = {
     pages: [
       'pages/index/index',
@@ -18,48 +38,41 @@ class App extends Component {
     ],
     window: {
       backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#fff',
+      navigationBarBackgroundColor: '#0068C4',
       navigationBarTitleText: 'WeChat',
-      navigationBarTextStyle: 'black'
+      navigationBarTextStyle: 'white',
+      enablePullDownRefresh: true
     },
     tabBar: {
+      color: "#626567",
+      selectedColor: "#2A8CE5",
+      backgroundColor: "#FBFBFB",
+      borderStyle: "white",
       list: [
         {
           pagePath: 'pages/index/index',
-          text: '位置',
-          iconPath: './images/tab/home.png',
-          selectedIconPath: './images/tab/home-active.png',
+          text: "首页",
+          iconPath: "./images/tab/index.png",
+          selectedIconPath: "./images/tab/index_focus.png"
         },
         {
           pagePath: 'pages/subscribe/index',
-          text: '预约',
-          iconPath: './images/tab/cart.png',
-          selectedIconPath: './images/tab/cart-active.png',
+          text: "发现",
+          iconPath: "./images/tab/discovery.png",
+          selectedIconPath: "./images/tab/discovery_focus.png"
         },
         {
           pagePath: 'pages/mine/index',
-          text: '我的',
-          iconPath: './images/tab/user.png',
-          selectedIconPath: './images/tab/user-active.png',
+          text: "我的",
+          iconPath: "./images/tab/burger.png",
+          selectedIconPath: "./images/tab/burger_focus.png"
         },
       ],
-      color: '#333',
-      selectedColor: '#333',
-      backgroundColor: '#fff',
-      borderStyle: 'white',
     },
   }
 
   componentDidMount() {
-  }
-
-  componentDidShow() {
-  }
-
-  componentDidHide() {
-  }
-
-  componentDidCatchError() {
+    app.setup()
   }
 
   // 在 App 类中的 render() 函数没有实际作用
