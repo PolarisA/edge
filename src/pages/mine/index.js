@@ -4,23 +4,26 @@
  * @Description :
  **/
 
-import Taro, {Component} from '@tarojs/taro'
+import Taro, { Component } from '@tarojs/taro'
 import {
   View,
   Input,
   Text,
   Button,
+  Image,
   ScrollView,
 } from '@tarojs/components'
 
 import './index.scss'
 
 const profile = [
-  {title: '勋章', numbers: 5, icon: ''},
-  {title: '手机号', numbers: 0, icon: ''},
-  {title: '卡片信息', numbers: 9, icon: ''},
-  {title: '优惠券', numbers: 2, icon: ''},
+  { title: '勋章', numbers: 5, icon: '' },
+  { title: '手机号', numbers: 0, icon: '' },
+  { title: '卡片信息', numbers: 9, icon: '' },
+  { title: '优惠券', numbers: 2, icon: '' },
 ]
+
+import ic_header from '../../images/head.png'
 
 class Mine extends Component {
   config = {
@@ -34,25 +37,22 @@ class Mine extends Component {
     }
   }
 
-  onItemClick = (profile) => {
-    console.log("== onItemClick  profile -=->", profile)
-
-  }
 
   render() {
-    const {profile} = this.state
+    const { profile } = this.state
     return (
       <ScrollView className='mine-page'>
-        <View className='mine-header'>
-          <View className='mine-item-header'>
-            <Text className='header-font'>
-              登录
+        <View className='mine-header-card'>
+          <View className='mine-header-title'>
+            <Image className='mine-header-avatar' src={ic_header}/>
+
+            <Text className='mine-header-name-txt'>
+              {'授权登录'}
             </Text>
           </View>
-
-          <View className='mine-icon-size'>
-            <Text>
-              hello
+          <View className='mine-header-tips'>
+            <Text className='mine-header-tips-txt'>
+              {'柒橙二十四科技有限公司'}
             </Text>
           </View>
         </View>
@@ -62,9 +62,10 @@ class Mine extends Component {
             profile.map((item, index) => {
               return (
                 <View key={index} className='mine-item-view'>
-                  <Text>
-                    index
-                  </Text>
+                  <View>
+                    
+                  </View>
+
                 </View>
               )
             })
@@ -76,3 +77,7 @@ class Mine extends Component {
 }
 
 export default Mine
+
+// <View className='mine-item-view-title'>
+//
+//   </View>
