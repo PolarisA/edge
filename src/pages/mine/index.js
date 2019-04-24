@@ -17,10 +17,10 @@ import {
 import './index.scss'
 
 const profile = [
-  { title: '勋章', numbers: 5, icon: '' },
-  { title: '手机号', numbers: 0, icon: '' },
-  { title: '卡片信息', numbers: 9, icon: '' },
-  { title: '优惠券', numbers: 2, icon: '' },
+  { title: '勋章', numbers: 5, desc: '🐒🐒🐒', icon: '' },
+  { title: '手机号', numbers: 0, desc: '15354872777', icon: '' },
+  { title: '卡片信息', numbers: 9, desc: '一年期会员', icon: '' },
+  { title: '优惠券', numbers: 2, desc: '3张', icon: '' },
 ]
 
 import ic_header from '../../images/head.png'
@@ -62,10 +62,17 @@ class Mine extends Component {
             profile.map((item, index) => {
               return (
                 <View key={index} className='mine-item-view'>
-                  <View>
-                    
+                  <View className='mine-item-list-view'>
+                    <Text className='mine-item-value-txt'>
+                      {item.desc}
+                    </Text>
                   </View>
 
+                  <View className='mine-item-list-tips'>
+                    <Text className='mine-header-tips-txt'>
+                      {item.title}
+                    </Text>
+                  </View>
                 </View>
               )
             })
@@ -77,7 +84,3 @@ class Mine extends Component {
 }
 
 export default Mine
-
-// <View className='mine-item-view-title'>
-//
-//   </View>
