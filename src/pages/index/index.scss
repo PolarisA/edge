@@ -1,6 +1,7 @@
 .page-homepage {
   display: flex;
   flex-direction: column;
+  background-color: #eeeeee;
 
   .page-top {
     width: 100%;
@@ -27,11 +28,58 @@
     justify-content: center;
     border-radius: 12PX;
 
-    .home-btn-txt{
+    .home-btn-txt {
       font-size: medium;
       color: #ffffff;
     }
   }
+}
 
+.home-banner-content {
+  position: absolute;
+  top: 30vh;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10PX;
+  background-color: rgba(255, 255, 255, 0.05);
+}
 
+.home-banner-title {
+  font-size: large;
+  color: white;
+}
+
+.home-banner {
+  width: 100%;
+  height: 40vh;
+}
+
+.home-banner-item {
+  width: 100%;
+  height: 40vh;
+}
+
+.home-scroll {
+  display: inline-flex;
+  flex-direction: column;
+  width: 100%;
+  height: 60vh;
+}
+
+.home-scroll-view {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.home-place-item {
+  display: inline-flex;
+  flex-direction: column;
+  width: 100%;
+  height: 150PX;
+  background-color: white;
+  margin-top: 10PX;
+  margin-bottom: 5PX;
+  padding: 5PX 10PX;
 }

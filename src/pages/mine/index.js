@@ -24,6 +24,7 @@ const profile = [
 ]
 
 import ic_header from '../../images/head.png'
+import ic_start from '../../images/start.png'
 
 class Mine extends Component {
   config = {
@@ -63,9 +64,17 @@ class Mine extends Component {
               return (
                 <View key={index} className='mine-item-view'>
                   <View className='mine-item-list-view'>
-                    <Text className='mine-item-value-txt'>
-                      {item.desc}
-                    </Text>
+                    {
+                      index === 0 ?
+                        <View className='mine-item-content'>
+                          <Image className='mine-item-start' src={ic_start}/>
+                          <Image className='mine-item-start' src={ic_start}/>
+                          <Image className='mine-item-start' src={ic_start}/>
+                        </View> :
+                        <Text className='mine-item-value-txt'>
+                          {item.desc}
+                        </Text>
+                    }
                   </View>
 
                   <View className='mine-item-list-tips'>

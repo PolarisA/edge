@@ -117,6 +117,14 @@
   background-color: white;
 }
 
+.mine-item-start {
+  width: 20PX;
+  height: 20PX;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10PX;
+}
+
 .mine-item-list-view {
   display: inline-flex;
   flex-direction: column;
@@ -129,6 +137,13 @@
   padding-left: 10PX;
 }
 
+.mine-item-content{
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+
 .mine-item-list-tips {
   display: inline-flex;
   flex-direction: column;
@@ -138,7 +153,7 @@
   padding-left: 10PX;
 }
 
-.mine-item-value-txt{
+.mine-item-value-txt {
   font-size: large;
   color: #ffffff;
 }
@@ -161,3 +176,6 @@
 .mine-item-content {
 
 }
+
+
+
