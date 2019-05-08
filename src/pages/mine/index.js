@@ -48,7 +48,6 @@ const tabCards = [
   { name: '私教', icon: ic_teacher, screen: 'pages/mine/tabs/Coach' },
 ]
 
-
 class Mine extends Component {
   config = {
     navigationBarTitleText: ''
