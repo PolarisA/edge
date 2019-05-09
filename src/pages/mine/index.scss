@@ -1,0 +1,181 @@
+.mine-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #eeeeee;
+}
+
+.mine-header {
+  width: 100%;
+  height: 60PX;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 15PX;
+  background-color: #5b5b5b;
+}
+
+.mine-header-card {
+  display: inline-flex;
+  flex-direction: column;
+  width: 94%;
+  height: 150PX;
+  margin: 10PX 3% 20PX;
+  background-color: white;
+  border-radius: 15PX;
+}
+
+.mine-header-avatar {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50PX;
+  height: 50PX;
+  border-radius: 25PX;
+}
+
+.mine-header-title {
+  display: inline-flex;
+  flex-direction: row;
+  flex: 1;
+  height: 90PX;
+  align-items: center;
+  border-top-left-radius: 15PX;
+  border-top-right-radius: 15PX;
+  padding: 0 10PX;
+  background-color: #3377cc;
+}
+
+.mine-header-name {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.mine-header-name-txt {
+  font-size: x-large;
+  color: white;
+  margin: 0 5PX;
+}
+
+.mine-header-tips {
+  display: inline-flex;
+  flex-direction: column;
+  height: 45PX;
+  padding: 0 10PX;
+  justify-content: center;
+}
+
+.mine-header-tips-txt {
+  font-size: small;
+  color: #cccccc;
+}
+
+.mine-item-header {
+  display: inline-flex;
+  flex: auto;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header-font {
+  font-size: medium;
+  color: white;
+}
+
+.mine-icon-size {
+  display: inline-flex;
+  width: 20vw;
+  height: 60PX;
+  padding-right: 15PX;
+  align-items: center;
+  justify-content: center;
+  background-color: #37c;
+
+}
+
+.mine-item {
+  display: inline-flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+.mine-item-view {
+  display: inline-flex;
+  flex-direction: column;
+  width: 94%;
+  height: 60PX;
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-bottom: 10PX;
+  border-radius: 10PX;
+
+  background-color: white;
+}
+
+.mine-item-start {
+  width: 20PX;
+  height: 20PX;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10PX;
+}
+
+.mine-item-list-view {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 2;
+  height: 40PX;
+  border-top-left-radius: 10PX;
+  border-top-right-radius: 10PX;
+  background-color: #3377cc;
+  justify-content: center;
+  padding-left: 10PX;
+}
+
+.mine-item-content{
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+
+.mine-item-list-tips {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+  height: 20PX;
+  justify-content: center;
+  padding-left: 10PX;
+}
+
+.mine-item-value-txt {
+  font-size: large;
+  color: #ffffff;
+}
+
+.mine-item-view-title {
+  display: inline-flex;
+  flex-direction: column;
+  width: 94%;
+  height: 60PX;
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-bottom: 10PX;
+
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 10PX;
+  padding: 0 10PX;
+}
+
+.mine-item-content {
+
+}
+
+
+

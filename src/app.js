@@ -57,7 +57,7 @@ class App extends Component {
         },
         {
           pagePath: 'pages/subscribe/index',
-          text: "发现",
+          text: "位置",
           iconPath: "./images/tab/discovery.png",
           selectedIconPath: "./images/tab/discovery_focus.png"
         },
