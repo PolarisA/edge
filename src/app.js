@@ -35,6 +35,10 @@ class App extends Component {
       'pages/index/index',
       'pages/subscribe/index',
       'pages/mine/index',
+      'pages/mine/tabs/Vips',
+      'pages/mine/tabs/Certificate',
+      'pages/mine/tabs/Course',
+      'pages/mine/tabs/Coach',
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -42,6 +46,11 @@ class App extends Component {
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'white',
       enablePullDownRefresh: true
+    },
+    permission: {
+      "scope.userLocation": {
+        "desc": "你的位置信息将用于为你提供附近的服务站点"
+      }
     },
     tabBar: {
       color: "#626567",

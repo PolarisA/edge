@@ -77,7 +77,7 @@ const placeInfo = [
 
 class Index extends Component {
   config = {
-    navigationBarTitleText: '首页'
+    navigationBarTitleText: ''
   }
 
   constructor(props) {
