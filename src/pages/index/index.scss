@@ -160,12 +160,12 @@
 .home-place-item-status {
   display: inline-flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   padding: 0 3PX;
   background-color: #2A8CE5;
-  margin-right: 10PX;
   border-radius: 2PX;
+  margin-right: 20PX;
 }
 
 .home-item-block {
@@ -197,7 +197,7 @@
   margin-right: 15PX;
 }
 
-.place-item-price-view{
+.place-item-price-view {
   display: inline-flex;
   flex-direction: row;
   flex: 1;
