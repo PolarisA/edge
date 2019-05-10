@@ -3,7 +3,7 @@
  * @Date : 2019-05-10
  * @Description :
  **/
-import Taro, { Component } from '@tarojs/taro'
+import Taro, {Component} from '@tarojs/taro'
 import {
   View,
   Text,
@@ -29,10 +29,25 @@ class Vips extends Component {
 
     return (
       <View className='vips-page'>
+        <View className='vip-card-view'>
+          <View className='vip-card-title'>
+            <Text className='vip-card-title-txt'>
+              {'柒橙卡 NO.014051'}
+            </Text>
 
-        <Text>
-          {'hello'}
-        </Text>
+            <View className='vip-card-date-content'>
+              <Text className='vip-card-date-txt'>
+                {'有效期至'}
+              </Text>
+              <Text className='vip-card-date-txt'>
+                {'2020-05-01'}
+              </Text>
+            </View>
+          </View>
+
+        </View>
+
+
       </View>
     )
   }

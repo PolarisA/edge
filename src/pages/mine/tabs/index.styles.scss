@@ -4,11 +4,52 @@
  * @Description :
  **/
 
-
 .vips-page {
   display: flex;
   flex-direction: column;
   align-items: center;
   flex: 1;
-  background-color: #eeeeee;
+  background-color: #fff;
+}
+
+.vip-card-view {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  width: 94vw;
+  height: 45vw;
+  background-color: #F2C14E;
+  border-radius: 10PX;
+  margin-top: 15PX;
+}
+
+.vip-card-title {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  width: 94vw;
+  height: 20vw;
+  margin-left: 3vw;
+  margin-right: 3vw;
+  background-color: #2A8CE5;
+}
+
+.vip-card-date-content {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: flex-end;
+  padding-right: 10PX;
+}
+
+.vip-card-date-txt {
+  font-size: small;
+  color: #fff;
+}
+
+.vip-card-title-txt {
+  font-size: medium;
+  color: #fff;
+  margin-left: 10PX;
 }
