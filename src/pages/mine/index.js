@@ -80,9 +80,6 @@ class Mine extends Component {
 
   render() {
     const { personal } = this.state
-    const scrollStyle = {
-      height: '150px'
-    }
 
     return (
       <ScrollView
