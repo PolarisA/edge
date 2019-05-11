@@ -1,11 +1,12 @@
 import '@tarojs/async-await'
-import Taro, { Component } from '@tarojs/taro'
-import { Provider } from '@tarojs/redux'
+import Taro, {Component} from '@tarojs/taro'
+import {Provider} from '@tarojs/redux'
 
 import Index from './pages/index'
+import 'taro-ui/dist/style/index.scss'
 
 import zoro from '@opcjs/zoro' // 引入zoro
-import { createLoading } from '@opcjs/zoro-plugin'
+import {createLoading} from '@opcjs/zoro-plugin'
 import models from './models/index'
 import mixins from './mixins'
 
@@ -50,6 +51,12 @@ class App extends Component {
     permission: {
       "scope.userLocation": {
         "desc": "你的位置信息将用于为你提供附近的服务站点"
+      }
+    },
+    plugins: {
+      calendar: {
+        version: "1.1.3",
+        provider: "wx92c68dae5a8bb046"
       }
     },
     tabBar: {
