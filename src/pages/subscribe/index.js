@@ -32,7 +32,7 @@ const markers = [
 @connect(({ discover }) => ({ discover }))
 class Subscribe extends Component {
   config = {
-    navigationBarTitleText: '订阅'
+    navigationBarTitleText: ''
   }
 
   constructor() {
@@ -91,6 +91,7 @@ class Subscribe extends Component {
   render() {
     console.log("=== discover props >> ", this.props)
     console.log("=== discover state >> ", this.state)
+    const { center: { longitude, latitude } } = this.state
 
     return (
       <View className='discover-page'>
@@ -118,8 +119,8 @@ class Subscribe extends Component {
 
         <Map
           className='map-page'
-          longitude={116.480913}
-          latitude={39.996717}
+          longitude={longitude}
+          latitude={latitude}
           scale={15}
         />
 
