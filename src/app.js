@@ -53,12 +53,6 @@ class App extends Component {
         "desc": "你的位置信息将用于为你提供附近的服务站点"
       }
     },
-    plugins: {
-      calendar: {
-        version: "1.1.3",
-        provider: "wx92c68dae5a8bb046"
-      }
-    },
     tabBar: {
       color: "#626567",
       selectedColor: "#2A8CE5",
