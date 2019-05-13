@@ -57,7 +57,11 @@ class Certificate extends Component {
             return (
               <View key={`${index}`} className='cert-item-view'>
                 <View className='cert-item-view-header'>
-                  <Image src={ic_cert_tips} className={item.status ? 'cert-item-icon_write' : 'cert-item-icon_done'}/>
+                  <Text className={item.status ? 'cert-item-price-head-txt' : 'cert-item-price-done-txt'}>{`￥`}
+                    <Text className='cert-item-price-txt'>
+                      {item.price}
+                    </Text>
+                  </Text>
                 </View>
                 <View className='cert-item-view-line'>
                   <View className='cert-item-line-top'>
@@ -71,8 +75,28 @@ class Certificate extends Component {
 
                 <View className='cert-item-content-view'>
                   <View className='cert-item-price-box'>
-                    <Text className='cert-item-price-head-txt'>{`￥`}
-                      <Text className='cert-item-price-txt'>{item.price}</Text>
+                    <Image src={ic_cert_tips} className={item.status ? 'cert-item-icon_write' : 'cert-item-icon_done'}/>
+                  </View>
+
+                  <View className='cert-item-date-box'>
+                    <Text className='cert-item-date-txt'>
+                      {'起始时间:'}
+                      <Text className='cert-item-date-desc-txt'>
+                        {item.dateStart}
+                      </Text>
+                    </Text>
+
+                    <Text className='cert-item-date-txt'>
+                      {'活动终止:'}
+                      <Text className='cert-item-date-desc-txt'>
+                        {item.dateEnd}
+                      </Text>
+                    </Text>
+                  </View>
+
+                  <View className={item.status ? 'cert-item-status-bar' : 'cert-item-status-lost'}>
+                    <Text className='cert-item-status-txt'>
+                      {item.tips}
                     </Text>
                   </View>
 

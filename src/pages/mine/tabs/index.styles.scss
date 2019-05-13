@@ -146,7 +146,7 @@
 .cert-item-view-header {
   display: inline-flex;
   flex-direction: column;
-  width: 70PX;
+  width: 80PX;
   height: 90PX;
   align-items: center;
   justify-content: center;
@@ -195,16 +195,16 @@
 }
 
 .cert-item-icon_done {
-  width: 60PX;
-  height: 60PX;
-  border-radius: 30PX;
+  width: 40PX;
+  height: 40PX;
+  border-radius: 20PX;
   background-color: #ccc;
 }
 
 .cert-item-icon_write {
-  width: 60PX;
-  height: 60PX;
-  border-radius: 30PX;
+  width: 40PX;
+  height: 40PX;
+  border-radius: 20PX;
   background-color: #F9564F;
 }
 
@@ -228,10 +228,166 @@
   font-size: large;
   color: #F9564F;
   margin-left: 10PX;
-  margin-right: 5PX;
+  margin-right: 10PX;
+}
+
+.cert-item-price-done-txt {
+  font-size: large;
+  color: #CCC;
+  margin-left: 10PX;
+  margin-right: 10PX;
 }
 
 .cert-item-price-txt {
   font-size: 30PT;
   font-weight: bold;
+}
+
+.cert-item-status-bar {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 35PX;
+  width: 65PX;
+  margin-right: 10PX;
+  border-radius: 4PX;
+  background-color: #F9564F;
+}
+
+.cert-item-status-lost {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 35PX;
+  width: 65PX;
+  margin-right: 10PX;
+  border-radius: 4PX;
+  background-color: #CCC;
+}
+
+.cert-item-status-txt {
+  font-size: small;
+  color: #fff;
+}
+
+.cert-item-date-box {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+}
+
+.cert-item-date-txt {
+  font-size: small;
+  color: #5b5b5b;
+  margin-left: 10PX;
+  margin-right: 10PX;
+}
+
+.cert-item-date-desc-txt {
+  color: #333;
+}
+
+//<<<<<<<<<<<<<<<<<<<<<<<<<<< Coach Style <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+.coach-item-box {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  width: 94vw;
+  height: 100PX;
+  margin-top: 10PX;
+  margin-bottom: 5PX;
+  border-radius: 2PX;
+  background-color: #fff;
+}
+
+.coach-item-avatar-view {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10PX;
+  margin-right: 10PX;
+  width: 70PX;
+  height: 100PX;
+}
+
+.coach-item-avatar {
+  width: 60PX;
+  height: 60PX;
+  border-radius: 30PX;
+}
+
+.coach-item-name-txt {
+  font-size: small;
+  color: #333;
+  margin-top: 5PX;
+}
+
+.coach-item-content {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+
+}
+
+.coach-item-content-skill {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  height: 35PX;
+}
+
+.coach-item-skill-tab {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3PX;
+  background-color: #2A8CE5;
+  margin-right: 10PX;
+  border-radius: 2PX;
+}
+
+.coach-item-skill-tab-txt {
+  font-size: small;
+  color: #fff;
+}
+
+.coach-item-content-desc {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  height: 35PX;
+  margin-top: 5PX;
+}
+
+.coach-item-content-txt {
+  font-size: small;
+  color: #666;
+}
+
+.coach-item-at-icon {
+  margin-top: -5PX;
+}
+
+.coach-item-at-money {
+  margin-left: 20PX;
+  margin-top: -5PX;
+}
+
+.coach-item-score-txt {
+  font-size: 25Pt;
+  font-weight: bold;
+  color: #3377cc;
+  margin-right: 10PX;
+}
+
+.coach-item-score-tips {
+  font-size: small;
+  font-weight: normal;
+  color: #666;
 }
