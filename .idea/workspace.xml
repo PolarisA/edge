@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d980934-0b51-4712-b249-86234b170618" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/arch/Arch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/arch/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/mine/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/mine/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/mine/tabs/Certificate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/mine/tabs/Certificate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/mine/tabs/Vips.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/mine/tabs/Vips.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/mine/tabs/index.styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/mine/tabs/index.styles.scss" afterDir="false" />
-    </list>
+    <list default="true" id="3d980934-0b51-4712-b249-86234b170618" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -322,12 +314,12 @@
       <workItem from="1556098316431" duration="10701000" />
       <workItem from="1556525472011" duration="19966000" />
       <workItem from="1557305434120" duration="12291000" />
-      <workItem from="1557392765999" duration="31303000" />
+      <workItem from="1557392765999" duration="31355000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76305000" />
+    <option name="totallyTimeSpent" value="76357000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-253" y="-1080" width="1920" height="1080" extended-state="6" />
