@@ -6,6 +6,8 @@
 import Taro, { Component } from '@tarojs/taro'
 import {
   View,
+  CoverView,
+  CoverImage,
   Input,
   Text,
   Map,
@@ -16,17 +18,107 @@ import './index.scss'
 import { connect } from '@tarojs/redux'
 import { dispatcher } from '@opcjs/zoro'
 
-import ic_mark from '../../images/map/ic_mark.png'
+import ic_mark from '../../images/map/ic_location.png'
+import ic_qrCode from '../../images/map/ic_visualization.png'
+
+const localPoint = [
+  {
+    latitude: 40.8536,
+    longitude: 111.6343,
+  },
+  {
+    latitude: 40.8538,
+    longitude: 111.6506,
+  },
+  {
+    latitude: 40.8462,
+    longitude: 111.6800,
+  },
+  {
+    latitude: 40.8081,
+    longitude: 111.6644,
+  },
+  {
+    latitude: 40.8093,
+    longitude: 111.6541,
+  },
+  {
+    latitude: 40.8329,
+    longitude: 111.7345,
+  },
+  {
+    latitude: 40.8147,
+    longitude: 111.6697,
+  },
+  {
+    latitude: 40.8126,
+    longitude: 111.6902,
+  }
+]
+
+function calloutShow(name, present, appointment) {
+  let content = `${name}\n 当前:${present} 预约:${appointment}`
+
+  const callout = {
+    content,
+    color: '#0068C4',
+    fontSize: 15,
+    padding: 5,
+    borderRadius: 2,
+    textAlign: 'center',
+    display: 'ALWAYS',
+  }
+
+  return callout
+}
+
+function setMarkers(id, index, name, present, appointment) {
+  const markers = {
+    id,
+    iconPath: ic_mark,
+    name,
+    ...localPoint[index],
+    width: 30,
+    height: 30,
+    zIndex: 10,
+    callout: calloutShow(name, present, appointment)
+  }
+
+  return markers
+}
+
+function setCenter(id, latitude, longitude) {
+  const markers = {
+    id,
+    name: '我的位置',
+    iconPath: ic_mark,
+    latitude,
+    longitude,
+    width: 30,
+    height: 30,
+    zIndex: 10,
+    callout: {
+      content: '我的位置',
+      color: '#0068C4',
+      fontSize: 15,
+      padding: 5,
+      borderRadius: 2,
+      textAlign: 'center',
+      display: 'ALWAYS',
+    }
+  }
+  return markers
+}
 
 const markers = [
-  { id: 1001, iconPath: ic_mark, name: '财经大学(回民区)店', latitude: 40.8536, longitude: 111.6343, width: 50, height: 50 },
-  { id: 1002, iconPath: ic_mark, name: '成吉思汗大街店', latitude: 40.8538, longitude: 116.6506, width: 50, height: 50 },
-  { id: 1003, iconPath: ic_mark, name: '工业大学(新城区)店', latitude: 40.8462, longitude: 111.6800, width: 50, height: 50 },
-  { id: 1004, iconPath: ic_mark, name: '青城公园店', latitude: 40.8081, longitude: 111.6644, width: 50, height: 50 },
-  { id: 1005, iconPath: ic_mark, name: '伊利广场店', latitude: 40.8093, longitude: 111.6541, width: 50, height: 50 },
-  { id: 1006, iconPath: ic_mark, name: '万达广场店', latitude: 40.8329, longitude: 111.7345, width: 50, height: 50 },
-  { id: 1007, iconPath: ic_mark, name: '海亮广场店', latitude: 40.8147, longitude: 111.6697, width: 50, height: 50 },
-  { id: 1008, iconPath: ic_mark, name: '内蒙古大学（赛罕区）店', latitude: 40.8126, longitude: 111.6902, width: 50, height: 50 },
+  { ...setMarkers(1001, 0, '财经大学(回民区)店', 8, 2) },
+  { ...setMarkers(1002, 1, '成吉思汗大街店', 15, 3) },
+  { ...setMarkers(1003, 2, '工业大学(新城区)店', 7, 0) },
+  { ...setMarkers(1004, 3, '青城公园店', 5, 2) },
+  { ...setMarkers(1005, 4, '伊利广场店', 4, 0) },
+  { ...setMarkers(1006, 5, '万达广场店', 11, 3) },
+  { ...setMarkers(1007, 6, '海亮广场店', 15, 4) },
+  { ...setMarkers(1008, 7, '内蒙古大学（赛罕区）店', 6, 1) },
 ]
 
 @connect(({ discover }) => ({ discover }))
@@ -39,23 +131,44 @@ class Subscribe extends Component {
     super()
     this.state = {
       center: {
-        latitude: 0,
-        longitude: 0,
+        latitude: 40.8443,
+        longitude: 111.7077,
       },
-      loading: false
+      loading: false,
+      markers,
+      localPoint,
     }
   }
 
   componentDidMount() {
-    Taro.getLocation({
-      type: 'wgs84',
+    const mapCtx = Taro.createMapContext('myMap')
+    this.initMap()
+  }
+
+  async initMap() {
+    const mMarkers = this.state.markers
+    const mLocalPoint = this.state.localPoint
+
+    await Taro.getLocation({
+      type: 'gcj02',
       altitude: true,
       success: (res) => {
         console.log("=== success res === ", res)
         this.setLocationCenter(res)
+
+        let markers = [...mMarkers, { ...setCenter(1000, res.latitude, res.longitude) }]
+        let localPoint = [...mLocalPoint, { latitude: res.latitude, longitude: res.longitude }]
+
+        this.state.markers = []
+        this.state.localPoint = []
+
+        this.setState({
+          markers,
+          localPoint
+        })
       },
       fail: (res) => {
-        console.log("=== fail res === ", res)
+        console.log("=== success res === ", res)
       }
     }).then(res => {
       console.log("=== get location res === ", res)
@@ -87,46 +200,52 @@ class Subscribe extends Component {
     console.log("=== value -=--> ", value)
   }
 
+  onMarkerClick(marker) {
+    console.log("=== onMarkerClick marker -=-> ", marker)
+
+  }
+
+  onShowModal = () => {
+    Taro.showModal({
+      title: '会员二维码',
+      content: 'XXXX',
+    }).then(res => console.log(res.confirm, res.cancel))
+  }
+
 
   render() {
     console.log("=== discover props >> ", this.props)
     console.log("=== discover state >> ", this.state)
-    const { center: { longitude, latitude } } = this.state
+    const {
+      center: {
+        longitude,
+        latitude
+      },
+      markers,
+      localPoint,
+    } = this.state
 
     return (
       <View className='discover-page'>
-        <View className='discover-search-block'>
-          <Input
-            type='text'
-            placeholder='位置/健身房/站点'
-            maxLength={30}
-            className='discover-search-input'
-            placeholderClass='discover-search-placeholder-input'
-            onInput={(value) => this.getInput(value)}
-          />
-
-          <Button
-            className='discover-search-btn'
-            size='default'
-            type='primary'
-            style='background-color:#37c'
-            onClick={this.onSearch}>
-            <Text className='discover-search-btn-txt'>
-              {'搜索'}
-            </Text>
-          </Button>
-        </View>
-
         <Map
+          id={'myMap'}
           className='map-page'
           longitude={longitude}
           latitude={latitude}
-          scale={15}
-        />
-
+          scale={13}
+          markers={markers}
+          include-points={localPoint}
+          show-compass
+          enable-zoom
+          show-location>
+        </Map>
       </View>
     )
   }
 }
 
 export default Subscribe
+
+// <CoverView className='discover-map-cover-bar' onClick={this.onShowModal}>
+//   <CoverImage src={ic_qrCode} className='discover-map-cover-qrCode'/>
+//   </CoverView>
