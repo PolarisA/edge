@@ -1,0 +1,469 @@
+.detail-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  height: 100vh;
+}
+
+.home-detail-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  height: 94vh;
+  background-color: #efefef;
+}
+
+.home-detail-appoint-btn-view {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100vw;
+  height: 6vh;
+  background-color: #ffffff;
+}
+
+.home-detail-appoint-btn {
+  display: inline-flex;
+  flex-direction: row;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-detail-banner {
+  width: 100vw;
+  height: 35vh;
+}
+
+.home-detail-shopPic-item {
+  display: inline-flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 35vh;
+}
+
+.home-detail-status-bar {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100vw;
+  height: 50PX;
+  margin-top: 5PX;
+  background-color: #fff;
+}
+
+.home-detail-status-block {
+  display: inline-flex;
+  flex-direction: row;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-detail-status-place {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100vw;
+  height: 70PX;
+  margin-top: 5PX;
+  background-color: #fff;
+}
+
+.home-detail-location-info {
+  display: inline-flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  padding-right: 10PX;
+}
+
+.home-detail-location-cell {
+  display: inline-flex;
+  flex-direction: column;
+  width: 70PX;
+  height: 70PX;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.home-detail-location-line {
+  width: 1PX;
+  height: 55PX;
+  background-color: #efefef;
+}
+
+.home-detail-location-icon {
+  display: inline-flex;
+  flex-direction: column;
+  width: 30PX;
+  height: 70PX;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-detail-status-icon {
+  width: 20PX;
+  height: 20PX;
+  margin-top: -3PX;
+  margin-right: 5PX;
+}
+
+.home-detail-device-bar {
+  display: inline-flex;
+  flex-direction: row;
+  flex: 1;
+  width: 100vw;
+  height: 100PX;
+  margin-top: 5PX;
+  background-color: #fff;
+}
+
+.home-detail-device-tab {
+  display: inline-flex;
+  flex-direction: column;
+  width: 20vw;
+  height: 100PX;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-detail-buyForTeam {
+  display: inline-flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 110PX;
+  background-color: #fff;
+}
+
+.home-detail-teambuy-item {
+  display: inline-flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 55PX;
+  align-items: center;
+}
+
+.home-detail-charts-view-title-bar {
+  display: inline-flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 35PX;
+  align-items: center;
+  margin-top: 5PX;
+  margin-bottom: 1PX;
+  background-color: #fff;
+}
+
+.home-detail-charts-view-bar {
+  display: inline-flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 35PX;
+  align-items: center;
+  margin-bottom: 1PX;
+  background-color: #fff;
+}
+
+
+.home-detail-charts-burn {
+  display: inline-flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 50PX;
+  align-items: center;
+  background-color: #fff;
+
+  margin-bottom: 1PX;
+}
+
+.home-detail-charts-item-order {
+  display: inline-flex;
+  flex-direction: row;
+  flex: 3;
+  align-items: center;
+}
+
+.home-detail-charts-item-time {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 3;
+  justify-content: center;
+}
+
+.home-detail-charts-item-burn {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 2.5;
+  justify-content: center;
+}
+
+.home-detail-item-avatar {
+  width: 20PX;
+  height: 20PX;
+  margin-left: 10PX;
+  margin-right: 10PX;
+}
+
+.home-detail-item-name-txt {
+  font-size: medium;
+  color: #666666;
+}
+
+.home-detail-item-content-txt {
+  font-size: small;
+  color: #666666;
+}
+
+.home-detail-charts-item-icon {
+  width: 18PX;
+  height: 18PX;
+  margin-top: -3PX;
+  margin-left: 10PX;
+  margin-right: 5PX;
+}
+
+.home-detail-charts-bar-icon {
+  width: 18PX;
+  height: 18PX;
+  margin-right: 5PX;
+}
+
+.home-detail-charts-bar-order {
+  display: inline-flex;
+  flex-direction: row;
+  flex: 3;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-detail-charts-bar-time {
+  display: inline-flex;
+  flex-direction: row;
+  flex: 3;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-detail-charts-bar-burn {
+  display: inline-flex;
+  flex-direction: row;
+  flex: 2.5;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-detail-charts-icon {
+  width: 18PX;
+  height: 18PX;
+  margin-left: 10PX;
+  margin-right: 10PX;
+}
+
+.home-detail-charts-title-txt {
+  font-size: medium;
+  color: #333333;
+}
+
+.home-detail-charts-view {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.home-detail-item-icon {
+  width: 46PX;
+  height: 46PX;
+  border-radius: 3PX;
+  margin-left: 10PX;
+  margin-right: 10PX;
+}
+
+.home-detail-item-content {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+}
+
+.home-detail-comment-item {
+  display: inline-flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 110PX;
+  background-color: #fff;
+  margin-bottom: 1PX;
+}
+
+.home-detail-comment-content {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100vw;
+  height: 55PX;
+}
+
+.home-detail-comment-block {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  padding: 5PX;
+  background-color: rgba(0, 0, 0, 0.05);
+  margin-left: 60PX;
+  margin-right: 10PX;
+  border-radius: 3PX;
+}
+
+.home-detail-comment-avatar {
+  width: 40PX;
+  height: 40PX;
+  border-radius: 20PX;
+  margin-left: 10PX;
+  margin-right: 10PX;
+}
+
+.home-detail-comment-title {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+
+.home-detail-comment-name-txt {
+  font-size: medium;
+  color: #5b5b5b;
+}
+
+.home-detail-comment-date-txt {
+  font-size: small;
+  color: #999999;
+  margin-top: 5PX;
+}
+
+.home-detail-comment-desc-txt {
+  font-size: small;
+  color: #999999;
+}
+
+.home-detail-comment-start {
+  font-size: small;
+  color: gold;
+  margin-right: 10PX;
+}
+
+.home-detail-item-title-txt {
+  font-size: medium;
+  font-weight: bold;
+  color: #333333;
+}
+
+.home-detail-item-desc-txt {
+  font-size: small;
+  color: #999;
+  margin-right: 10PX;
+}
+
+.home-detail-item-now-txt {
+  font-size: medium;
+  font-weight: bold;
+  margin-top: 5PX;
+  color: #F9564F;
+}
+
+.home-detail-item-origin-txt {
+  font-size: small;
+  font-weight: normal;
+  color: #ccc;
+  text-decoration: line-through;
+  margin-left: 5PX;
+}
+
+.home-detail-buy-title-bar {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100vw;
+  height: 35PX;
+  background-color: #fff;
+  margin-top: 5PX;
+  margin-bottom: 1PX;
+}
+
+.home-detail-buy-bar {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  height: 30PX;
+  margin-left: 10PX;
+  margin-right: 10PX;
+  background-color: #fff;
+  border-bottom-width: 1PX;
+  border-bottom-color: #efefef;
+}
+
+.home-detail-buy-tips {
+  display: inline-flex;
+  flex-direction: row;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 10PX;
+}
+
+.home-detail-appoint-btn-txt {
+  font-size: small;
+  color: #5b5b5b;
+  margin-left: 5PX;
+}
+
+.home-detail-buy-tips-txt {
+  font-size: small;
+  color: #999;
+  margin-left: 3PX;
+  margin-right: 7PX;
+}
+
+.home-detail-buy-icon {
+  width: 20PX;
+  height: 20PX;
+  margin-left: 10PX;
+  margin-right: 5PX;
+}
+
+.home-detail-device-tab-icon {
+  width: 25PX;
+  height: 25PX;
+}
+
+.home-detail-device-tab-txt {
+  font-size: small;
+  color: #333333;
+  margin-top: 3PX;
+}
+
+.home-detail-tel-icon {
+  width: 25PX;
+  height: 25PX;
+  margin-bottom: 5PX;
+}
+
+.home-detail-map-icon {
+  width: 20PX;
+  height: 20PX;
+  margin-top: -3PX;
+  margin-right: 5PX;
+}
+
+.home-detail-line {
+  width: 1PX;
+  height: 35PX;
+  background-color: #efefef;
+}
+
+.home-detail-status-txt {
+  font-size: small;
+  color: #666666;
+}

@@ -1,3 +1,5 @@
+import Mock from "mockjs";
+
 export const promisify = (func, ctx) => {
   // 返回一个新的function
   return function () {
@@ -61,6 +63,18 @@ export const delay = (time) => {
   })
 }
 
+export function installParams(props) {
+  const queryStr = Object.keys(props)
+    .reduce((ary, key) => {
+      if (props[key]) {
+        ary.push(encodeURIComponent(key) + '=' + encodeURIComponent(props[key]));
+      }
+      return ary;
+    }, [])
+    .join('&');
+
+  return `?${queryStr}`
+}
 
 export const logError = (name, action, info) => {
   if (!info) {
@@ -123,6 +137,52 @@ export const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+/***
+ * 生成模拟数据
+ * @param value 数据量
+ * @param type 返回类型
+ * @returns {Array}
+ */
+export const setMockData = (value, type) => {
+  let mock = []
+  if (value === 0) return mock
+
+  switch (type) {
+    case 'ORDER': {
+      for (let i = 0; i < value; i++) {
+        let name = Mock.Random.cname()
+        const props = {
+          name,
+          time: Mock.Random.time('HH:mm:ss'),
+          burn: parseInt(Math.random() * 350),
+        }
+        mock.push(props)
+      }
+      return mock
+    }
+    case 'COMMENT': {
+      for (let i = 0; i < value; i++) {
+        let name = Mock.Random.cname()
+        let mWords = Mock.Random.first().slice(0, 1)
+
+        const props = {
+          name,
+          avatar: Mock.Random.image('120x120', `${Mock.Random.color()}`, '#FFF', `${mWords}`),
+          date: Mock.Random.datetime('MM-dd HH:mm'),
+          comment: Mock.Random.cparagraph(2),
+          start: parseInt(Math.random() * 4) + 1,
+        }
+        mock.push(props)
+      }
+      return mock
+    }
+
+    default:
+      break
+  }
+
+  return mock
+}
 
 /**
  * 判断是否为空

@@ -33,6 +33,7 @@ class App extends Component {
   config = {
     pages: [
       'pages/index/index',
+      'pages/index/detail/Detail',
       'pages/subscribe/index',
       'pages/mine/index',
       'pages/mine/tabs/Vips',
@@ -81,6 +82,10 @@ class App extends Component {
   }
 
   componentDidMount() {
+    wx.cloud.init({
+      env: 'qcitycloud-cffa3a', // 前往云控制台获取环境 ID
+      traceUser: true // 是否要捕捉每个用户的访问记录。设置为 true，用户可在管理端看到用户访问记录
+    })
     app.setup()
   }
 

@@ -20,7 +20,7 @@
 	"author": "",
 	"license": "MIT",
 	"dependencies": {
-		"@opcjs/zoro": "^2.3.4",
+		"@opcjs/zoro": "^2.3.7",
 		"@opcjs/zoro-plugin": "^2.2.0",
 		"@tarojs/async-await": "^1.2.23",
 		"@tarojs/components": "1.2.23",
@@ -34,6 +34,7 @@
 		"@tarojs/taro-tt": "1.2.23",
 		"@tarojs/taro-weapp": "1.2.23",
 		"classnames": "^2.2.6",
+		"mockjs": "^1.0.1-beta3",
 		"nerv-devtools": "^1.3.9",
 		"nervjs": "^1.3.9",
 		"redux": "^4.0.1",
@@ -42,10 +43,10 @@
 		"taro-ui": "^2.0.2"
 	},
 	"devDependencies": {
-		"@tarojs/plugin-babel": "1.2.23",
+		"@tarojs/plugin-babel": "^1.3.0-beta.3",
 		"@tarojs/plugin-csso": "1.2.23",
 		"@tarojs/plugin-sass": "1.2.23",
-		"@tarojs/plugin-uglifyjs": "1.2.23",
+		"@tarojs/plugin-uglifyjs": "^1.3.0-beta.3",
 		"@tarojs/webpack-runner": "1.2.23",
 		"@types/react": "^16.4.6",
 		"@types/webpack-env": "^1.13.6",
