@@ -18,7 +18,6 @@ import { dispatcher } from '@opcjs/zoro'
 import { localPoint, localArea } from '../../constants/config'
 
 import ic_mark from '../../images/map/ic_location.png'
-import ic_qrCode from '../../images/map/ic_visualization.png'
 
 function calloutShow(name, present, appointment) {
   let content = `${name}\n 当前:${present} 预约:${appointment}`
