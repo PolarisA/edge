@@ -6,10 +6,7 @@
 import Taro, { Component } from '@tarojs/taro'
 import {
   View,
-  Input,
-  Text,
   Map,
-  Button
 } from '@tarojs/components'
 
 import './index.scss'
@@ -35,12 +32,13 @@ function calloutShow(name, present, appointment) {
   return callout
 }
 
-function setMarkers(id, index, name, present, appointment) {
+function setMarkers(id, index, name, present, appointment, latitude, longitude) {
   const markers = {
     id,
     iconPath: ic_mark,
     name,
-    ...localPoint[index],
+    latitude,
+    longitude,
     width: 30,
     height: 30,
     zIndex: 10,
@@ -92,27 +90,56 @@ class Subscribe extends Component {
     }
   }
 
+  _showLoading = (loading) => {
+    if (loading) {
+      Taro.showLoading({ title: '加载中' })
+    } else {
+      Taro.hideLoading()
+    }
+  }
+
   componentDidMount() {
     const mapCtx = Taro.createMapContext('myMap')
-
     this.initMap()
   }
 
   async initMap() {
-    const markers = []
-    for (let i = 0; i <= 16; i++) {
-      const marker = {
-        ...setMarkers(1000 + i, i, localArea[i].name, parseInt(Math.random() * 40), parseInt(Math.random() * 10))
-      }
-      await markers.push(marker)
-    }
+    await this._showLoading(true)
 
-    this.setState({
-      markers,
+    const db = wx.cloud.database()
+
+    const mapCollection = await db.collection('shop')
+    if (!mapCollection) return
+
+    await mapCollection.get({
+      success: res => {
+        console.log('== mapCollection res >>>', res)
+        const markers = []
+
+        res.data.map((item, index) => {
+          const marker = {
+            ...setMarkers(
+              item._id,
+              index,
+              item.name,
+              item.NumberNow * 1,
+              item.appoint * 1,
+              item.latitude,
+              item.longitude,
+            )
+          }
+          markers.push(marker)
+        })
+        this.setState({
+          markers,
+        })
+      },
+      fail: err => {
+        console.log('== mapCollection err >>>', err)
+      }
     })
 
-    const mMarkers = this.state.markers
-    const mLocalPoint = this.state.localPoint
+    await this._showLoading(false)
 
     // await Taro.getLocation({
     //   type: 'gcj02',
@@ -152,23 +179,12 @@ class Subscribe extends Component {
   }
 
   calloutTap(callout) {
-    console.log("=== calloutTap callout -=->", callout)
     const { markerId } = callout
-    const param = {
-      markerId,
-    }
 
-    dispatcher.discover.getLSBInfo(param)
-
+    Taro.navigateTo({
+      url: `/pages/index/detail/Detail?id=${markerId}`
+    })
   }
-
-  onShowModal = () => {
-    Taro.showModal({
-      title: '会员二维码',
-      content: 'XXXX',
-    }).then(res => console.log(res.confirm, res.cancel))
-  }
-
 
   render() {
     console.log("=== discover props >> ", this.props)
