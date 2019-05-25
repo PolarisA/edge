@@ -402,6 +402,13 @@
   height: 60vh;
 }
 
+.course-head-line {
+  display: inline-flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 20PX;
+}
+
 .course-page-prompt {
   display: inline-flex;
   flex-direction: column;
@@ -427,3 +434,4 @@
   font-size: medium;
   color: #2A8CE5;
 }
+

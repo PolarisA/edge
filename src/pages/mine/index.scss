@@ -74,6 +74,16 @@
   align-items: flex-end;
 }
 
+.mine-header-block-marquee {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  width: 75vw;
+  background-color: transparent;
+
+}
+
 .mine-header-block-tips-txt {
   font-size: small;
   color: #fff;
