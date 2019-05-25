@@ -177,6 +177,19 @@ export const setMockData = (value, type) => {
       return mock
     }
 
+    case 'CALENDAR': {
+      for (let i = 0; i < value; i++) {
+        let value = '2019' + Mock.Random.datetime('/MM/dd')
+        let desc = Mock.Random.ctitle(3, 7)
+        const props = {
+          value,
+          desc,
+        }
+        mock.push(props)
+      }
+      return mock
+    }
+
     default:
       break
   }

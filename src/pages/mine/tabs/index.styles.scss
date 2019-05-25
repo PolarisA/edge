@@ -391,3 +391,47 @@
   font-weight: normal;
   color: #666;
 }
+
+
+// <<<<<<<<<<<<<<<<<<<<<< Course Styles <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+.course-page {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 60vh;
+}
+
+.course-head-line {
+  display: inline-flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 20PX;
+}
+
+.course-page-prompt {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  z-index: 10;
+  top: 65vh;
+  left: 3vw;
+  right: 3vw;
+  height: 90PX;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 2PX;
+}
+
+.course-page-content-txt {
+  font-size: medium;
+  color: #cccccc;
+  margin-left: 10PX;
+  margin-right: 10PX;
+}
+
+.course-page-content-plan-txt {
+  font-size: medium;
+  color: #2A8CE5;
+}
+

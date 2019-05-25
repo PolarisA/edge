@@ -1,11 +1,12 @@
 import '@tarojs/async-await'
-import Taro, { Component } from '@tarojs/taro'
-import { Provider } from '@tarojs/redux'
+import Taro, {Component} from '@tarojs/taro'
+import {Provider} from '@tarojs/redux'
 
 import Index from './pages/index'
+import 'taro-ui/dist/style/index.scss'
 
 import zoro from '@opcjs/zoro' // 引入zoro
-import { createLoading } from '@opcjs/zoro-plugin'
+import {createLoading} from '@opcjs/zoro-plugin'
 import models from './models/index'
 import mixins from './mixins'
 
