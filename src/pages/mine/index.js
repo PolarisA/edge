@@ -13,6 +13,7 @@ import {
   ScrollView,
 } from '@tarojs/components'
 
+import { AtNoticebar } from 'taro-ui'
 import { connect } from '@tarojs/redux'
 import { dispatcher } from '@opcjs/zoro'
 import { delay } from '../../utils/index'
@@ -37,16 +38,15 @@ import ic_gifts from '../../images/mine/ic_gifts.png'
 import ic_sport from '../../images/mine/ic_sport_value.png'
 import ic_coach from '../../images/mine/ic_perfile.png'
 
-
 const personal = [
-  { title: '我的预约', desc: '', icon: ic_cafe, screen: '' },
-  { title: '我的运动量', desc: '', icon: ic_sport, screen: '' },
-  { title: '邀请奖励', desc: '已邀请', icon: ic_gifts, screen: '' },
-  { title: '燃脂计划', desc: '', icon: ic_data, screen: '' },
-  { title: '打卡记录', desc: '', icon: ic_done, screen: '' },
-  { title: '系统消息', desc: '', icon: ic_news, screen: '' },
-  { title: '申请教练', desc: '', icon: ic_coach, screen: '' },
-  { title: '联系客服', desc: '', icon: ic_face, screen: '' },
+  { title: '我的预约', desc: '', icon: ic_cafe, screen: 'pages/mine/perfiles/Detail?' },
+  { title: '我的运动量', desc: '', icon: ic_sport, screen: 'pages/mine/perfiles/List?' },
+  { title: '邀请奖励', desc: '', icon: ic_gifts, screen: 'pages/mine/perfiles/Detail?' },
+  { title: '燃脂计划', desc: '', icon: ic_data, screen: 'pages/mine/perfiles/Detail?' },
+  { title: '打卡记录', desc: '', icon: ic_done, screen: 'pages/mine/perfiles/List?' },
+  { title: '系统消息', desc: '', icon: ic_news, screen: 'pages/mine/perfiles/List?' },
+  { title: '申请教练', desc: '', icon: ic_coach, screen: 'pages/mine/perfiles/FeedBack?' },
+  { title: '联系客服', desc: '', icon: ic_face, screen: 'pages/mine/perfiles/FeedBack?' },
 ]
 
 const tabCards = [
@@ -55,7 +55,6 @@ const tabCards = [
   { name: '课程', icon: ic_calendar, screen: 'pages/mine/tabs/Course' },
   { name: '私教', icon: ic_teacher, screen: 'pages/mine/tabs/Coach' },
 ]
-
 
 @connect(({ mine }) => ({ mine }))
 class Mine extends Component {
@@ -144,7 +143,11 @@ class Mine extends Component {
 
   onPersonalClick(item) {
     console.log("== onPersonalClick item -=->", item)
+    const { screen } = item
 
+    Taro.navigateTo({
+      url: `/${screen}`
+    })
   }
 
   render() {
@@ -177,12 +180,9 @@ class Mine extends Component {
 
           <View className='mine-header-block-bar'>
             <Image src={ic_vip} className='mine-vip-box'/>
-
-            <View className='mine-header-block-tips'>
-              <Text className='mine-header-block-tips-txt'>
-                {'新店启动3个月内免费开通会员'}
-              </Text>
-            </View>
+            <AtNoticebar className='mine-header-block-marquee' marquee>
+              {'新店启动3个月内免费开通会员,点击列表查看站点详情介绍'}
+            </AtNoticebar>
           </View>
         </View>
 
