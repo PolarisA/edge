@@ -13,6 +13,10 @@ import {
   ScrollView,
 } from '@tarojs/components'
 
+import { connect } from '@tarojs/redux'
+import { dispatcher } from '@opcjs/zoro'
+import { delay } from '../../utils/index'
+
 import './index.scss'
 
 import ic_header from '../../images/mine/head.png'
@@ -30,15 +34,19 @@ import ic_done from '../../images/mine/ic_done.png'
 import ic_face from '../../images/mine/ic_face.png'
 import ic_news from '../../images/mine/ic_news.png'
 import ic_gifts from '../../images/mine/ic_gifts.png'
+import ic_sport from '../../images/mine/ic_sport_value.png'
+import ic_coach from '../../images/mine/ic_perfile.png'
 
 
 const personal = [
   { title: '我的预约', desc: '', icon: ic_cafe, screen: '' },
-  { title: '系统消息', desc: '', icon: ic_news, screen: '' },
+  { title: '我的运动量', desc: '', icon: ic_sport, screen: '' },
   { title: '邀请奖励', desc: '已邀请', icon: ic_gifts, screen: '' },
   { title: '燃脂计划', desc: '', icon: ic_data, screen: '' },
   { title: '打卡记录', desc: '', icon: ic_done, screen: '' },
-  { title: '联系客服', desc: '3张', icon: ic_face, screen: '' },
+  { title: '系统消息', desc: '', icon: ic_news, screen: '' },
+  { title: '申请教练', desc: '', icon: ic_coach, screen: '' },
+  { title: '联系客服', desc: '', icon: ic_face, screen: '' },
 ]
 
 const tabCards = [
@@ -48,6 +56,8 @@ const tabCards = [
   { name: '私教', icon: ic_teacher, screen: 'pages/mine/tabs/Coach' },
 ]
 
+
+@connect(({ mine }) => ({ mine }))
 class Mine extends Component {
   config = {
     navigationBarTitleText: ''
@@ -57,12 +67,71 @@ class Mine extends Component {
     super()
     this.state = {
       personal,
+      avatarUrl: '',
+      nickName: '',
+      isLogin: false,
     }
   }
 
-  onLogin = () => {
-    console.log("=== Login === ")
+  componentDidMount() {
+    Taro.getStorage({ key: 'userInfo' })
+      .then(res => {
+        console.log(">>> res >>", res)
+        const {
+          nickName,
+          avatarUrl,
+        } = res.data
 
+        this.setState({
+          nickName,
+          avatarUrl,
+          isLogin: true,
+        })
+      }).catch(err => {
+      console.log(">>> err >>", err)
+    })
+  }
+
+  _showLoading = (loading) => {
+    if (loading) {
+      Taro.showLoading({ title: '加载中' })
+    } else {
+      Taro.hideLoading()
+    }
+  }
+
+  async getUserInfo(userInfo) {
+    console.log("=== getUserInfo == userInfo >>> ", userInfo)
+
+    await this._showLoading(true)
+    await delay(500)
+
+    this.setBasicInfo(userInfo)
+    await this._showLoading(false)
+  }
+
+  setBasicInfo = (userInfo) => {
+    console.log("=== userInfo =->", userInfo)
+
+    if (userInfo.detail.userInfo) {
+      dispatcher.mine.saveUserInfo(userInfo.detail.userInfo)
+      const {
+        avatarUrl,
+        nickName,
+      } = userInfo.detail.userInfo
+
+      this.setState({
+        avatarUrl,
+        nickName,
+        isLogin: true,
+      })
+
+      Taro.setStorage({ key: 'userInfo', data: userInfo.detail.userInfo })
+        .then(rst => {
+          //将用户信息存入缓存中
+          console.log("=== rst >>> ", rst)
+        })
+    }
   }
 
   onTabBarClick(item) {
@@ -79,10 +148,14 @@ class Mine extends Component {
   }
 
   render() {
-    const { personal } = this.state
-    const scrollStyle = {
-      height: '150px'
-    }
+    const {
+      personal,
+      isLogin,
+      avatarUrl,
+      nickName,
+    } = this.state
+    console.log("=== Mine props ", this.props)
+    console.log('=*** Mine state ***=> ', this.state)
 
     return (
       <ScrollView
@@ -95,10 +168,10 @@ class Mine extends Component {
         <View className='mine-header-card'>
           <View className='mine-header-title'>
             <View className='mine-header-box'>
-              <Image className='mine-header-avatar' src={ic_header}/>
+              <Image className='mine-header-avatar' src={isLogin ? avatarUrl : ic_header}/>
             </View>
             <Text className='mine-header-name-txt'>
-              {'未登录'}
+              {isLogin ? `${nickName}` : '未登录'}
             </Text>
           </View>
 
@@ -147,17 +220,20 @@ class Mine extends Component {
           }
         </View>
 
-        <Button
-          className='mine-login-btn'
-          size='default'
-          type='primary'
-          style='background-color:#0068C4'
-          onClick={this.onLogin}>
-          <Text className='mine-login-btn-txt'>
-            {'授权登录'}
-          </Text>
-        </Button>
-
+        {
+          !!isLogin ? <View className='mine-bottom-space-view'/> :
+            <Button
+              className='mine-login-btn'
+              size='default'
+              type='primary'
+              style='background-color:#0068C4'
+              open-type='getUserInfo'
+              onGetUserInfo={this.getUserInfo}>
+              <Text className='mine-login-btn-txt'>
+                {'授权登录'}
+              </Text>
+            </Button>
+        }
       </ScrollView>
     )
   }
