@@ -218,7 +218,13 @@
   width: 95vw;
   border-radius: 2PX;
   height: 45PX;
-  margin: 10PX 2.5vw 180PX;;
+  margin: 10PX 2.5vw 180PX;
+}
+
+.mine-bottom-space-view {
+  display: inline-flex;
+  flex-direction: column;
+  margin: 10PX 2.5vw 90PX;
 }
 
 .mine-login-btn-txt {

@@ -4,12 +4,13 @@
  * @Description :
  **/
 
-.vips-page {
+.tabs-page {
   display: flex;
   flex-direction: column;
   align-items: center;
   flex: 1;
-  background-color: #fff;
+  height: 100vh;
+  background-color: #efefef;
 }
 
 .vip-card-view {
@@ -17,11 +18,40 @@
   flex-direction: column;
   align-items: center;
   flex: 1;
+  position: absolute;
+  z-index: 10;
+  left: 3vw;
+  right: 3vw;
+  top: 15PX;
   width: 94vw;
-  height: 45vw;
-  background-color: #F2C14E;
+  height: 48vw;
   border-radius: 10PX;
-  margin-top: 15PX;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.vip-card-background {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: absolute;
+  z-index: 0;
+  left: 3vw;
+  right: 3vw;
+  top: 15PX;
+  width: 94vw;
+  height: 48vw;
+  border-radius: 10PX;
+}
+
+.vip-card-view-line {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: flex-end;
+  padding-bottom: 15PX;
+  width: 100%;
+  height: 28vw;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .vip-card-title {
@@ -32,7 +62,6 @@
   height: 20vw;
   margin-left: 3vw;
   margin-right: 3vw;
-  background-color: #2A8CE5;
 }
 
 .vip-card-date-content {
@@ -43,15 +72,324 @@
   padding-right: 10PX;
 }
 
+.vip-card-title-txt {
+  font-size: medium;
+  font-weight: bold;
+  font-family: "Apple Chancery";
+  color: #fff;
+  margin-left: 10PX;
+}
+
 .vip-card-date-txt {
+  font-size: small;
+  font-weight: bold;
+  color: #fff;
+}
+
+.vip-card-tips-line {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  padding-left: 10PX;
+}
+
+.vip-card-rqCode-image {
+  width: 90PX;
+  height: 90PX;
+}
+
+.vip-card-tips-image {
+  width: 36PX;
+  height: 24PX;
+  margin-right: 10PX;
+}
+
+.vip-card-rqCode-btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 94vw;
+  height: 50PX;
+  margin-top: 55vw;
+  border-radius: 2PX;
+  border-width: 1PX;
+  border-color: #3377cc;
+  background-color: #fff;
+}
+
+.vip-card-rqCode-btn-txt {
+  font-size: medium;
+  color: #3377cc;
+}
+
+.vip-card-rqCode-show {
+  width: 150PX;
+  height: 150PX;
+}
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+.cert-item-view {
+  display: inline-flex;
+  flex-direction: row;
+  flex: 1;
+  width: 94vw;
+  height: 90PX;
+  margin: 10PX 3vw 5PX;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 7PX;
+}
+
+.cert-item-view-header {
+  display: inline-flex;
+  flex-direction: column;
+  width: 80PX;
+  height: 90PX;
+  align-items: center;
+  justify-content: center;
+}
+
+.cert-item-view-line {
+  display: inline-flex;
+  flex-direction: column;
+  width: 14PX;
+  height: 90PX;
+}
+
+.cert-item-line-top {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+}
+
+.cert-item-line-bottom {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.cert-item-view-cro-top {
+  display: inline-flex;
+  flex-direction: column;
+  width: 14PX;
+  height: 14PX;
+  border-radius: 7PX;
+  margin-top: -5PX;
+  background-color: #efefef;
+}
+
+.cert-item-view-cro-bottom {
+  display: inline-flex;
+  flex-direction: column;
+  width: 14PX;
+  height: 14PX;
+  border-radius: 7PX;
+  margin-bottom: -5PX;
+  background-color: #efefef;
+}
+
+.cert-item-icon_done {
+  width: 40PX;
+  height: 40PX;
+  border-radius: 20PX;
+  background-color: #ccc;
+}
+
+.cert-item-icon_write {
+  width: 40PX;
+  height: 40PX;
+  border-radius: 20PX;
+  background-color: #F9564F;
+}
+
+.cert-item-content-view {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  flex: 1;
+}
+
+.cert-item-price-box {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60PX;
+  height: 90PX;
+}
+
+.cert-item-price-head-txt {
+  font-size: large;
+  color: #F9564F;
+  margin-left: 10PX;
+  margin-right: 10PX;
+}
+
+.cert-item-price-done-txt {
+  font-size: large;
+  color: #CCC;
+  margin-left: 10PX;
+  margin-right: 10PX;
+}
+
+.cert-item-price-txt {
+  font-size: 30PT;
+  font-weight: bold;
+}
+
+.cert-item-status-bar {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 35PX;
+  width: 65PX;
+  margin-right: 10PX;
+  border-radius: 4PX;
+  background-color: #F9564F;
+}
+
+.cert-item-status-lost {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 35PX;
+  width: 65PX;
+  margin-right: 10PX;
+  border-radius: 4PX;
+  background-color: #CCC;
+}
+
+.cert-item-status-txt {
   font-size: small;
   color: #fff;
 }
 
-.vip-card-title-txt {
-  font-size: medium;
-  color: #fff;
+.cert-item-date-box {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+}
+
+.cert-item-date-txt {
+  font-size: small;
+  color: #5b5b5b;
   margin-left: 10PX;
+  margin-right: 10PX;
+}
+
+.cert-item-date-desc-txt {
+  color: #333;
+}
+
+//<<<<<<<<<<<<<<<<<<<<<<<<<<< Coach Style <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+.coach-item-box {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  width: 94vw;
+  height: 100PX;
+  margin-top: 10PX;
+  margin-bottom: 5PX;
+  border-radius: 2PX;
+  background-color: #fff;
+}
+
+.coach-item-avatar-view {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10PX;
+  margin-right: 10PX;
+  width: 70PX;
+  height: 100PX;
+}
+
+.coach-item-avatar {
+  width: 60PX;
+  height: 60PX;
+  border-radius: 30PX;
+}
+
+.coach-item-name-txt {
+  font-size: small;
+  color: #333;
+  margin-top: 5PX;
+}
+
+.coach-item-content {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+
+}
+
+.coach-item-content-skill {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  height: 35PX;
+}
+
+.coach-item-skill-tab {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3PX;
+  background-color: #2A8CE5;
+  margin-right: 10PX;
+  border-radius: 2PX;
+}
+
+.coach-item-skill-tab-txt {
+  font-size: small;
+  color: #fff;
+}
+
+.coach-item-content-desc {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  height: 35PX;
+  margin-top: 5PX;
+}
+
+.coach-item-content-txt {
+  font-size: small;
+  color: #666;
+}
+
+.coach-item-at-icon {
+  margin-top: -5PX;
+}
+
+.coach-item-at-money {
+  margin-left: 20PX;
+  margin-top: -5PX;
+}
+
+.coach-item-score-txt {
+  font-size: 25Pt;
+  font-weight: bold;
+  color: #3377cc;
+  margin-right: 10PX;
+}
+
+.coach-item-score-tips {
+  font-size: small;
+  font-weight: normal;
+  color: #666;
 }
 
 
