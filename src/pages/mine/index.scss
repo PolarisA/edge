@@ -1,0 +1,297 @@
+.mine-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  background-color: #eeeeee;
+}
+
+.mine-header {
+  width: 100%;
+  height: 60PX;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 15PX;
+  background-color: #5b5b5b;
+}
+
+.mine-header-card {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 180PX;
+  margin-bottom: 5PX;
+  background-color: #0068C4;
+}
+
+.mine-header-box {
+  display: inline-flex;
+  flex-direction: column;
+  width: 70PX;
+  height: 70PX;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 35PX;
+}
+
+.mine-header-avatar {
+  display: inline-flex;
+  flex-direction: column;
+  width: 68PX;
+  height: 68PX;
+  border-radius: 34PX;
+}
+
+.mine-header-title {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.mine-header-block-bar {
+  display: inline-flex;
+  flex-direction: row;
+  width: 90vw;
+  height: 45PX;
+  align-items: center;
+  padding-left: 10PX;
+  padding-right: 10PX;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 10PX;
+  border-top-right-radius: 10PX;
+}
+
+.mine-header-block-tips {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.mine-header-block-marquee {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  width: 75vw;
+  background-color: transparent;
+
+}
+
+.mine-header-block-tips-txt {
+  font-size: small;
+  color: #fff;
+}
+
+.mine-header-tab-block {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  width: 95vw;
+  height: 70PX;
+  border-radius: 2PX;
+  margin-left: 2.5vw;
+  margin-right: 2.5vw;
+  background-color: #fff;
+  margin-bottom: 10PX;
+}
+
+.mine-item {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+  width: 95vw;
+  border-radius: 2PX;
+  margin-left: 2.5vw;
+  margin-right: 2.5vw;
+  background-color: #fff;
+}
+
+.mine-header-item-txt {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+
+.mine-item-view {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 50PX;
+  padding-left: 10PX;
+  padding-right: 10PX;
+}
+
+.mine-item-icon {
+  width: 20PX;
+  height: 20PX;
+}
+
+.mine-item-right-icon {
+  width: 15PX;
+  height: 18PX;
+  margin-right: 15PX;
+}
+
+.mine-item-txt {
+  font-size: small;
+  color: #5b5b5b;
+  margin-left: 5PX;
+}
+
+.mine-vip-box {
+  width: 40PX;
+  height: 20PX;
+}
+
+.mine-header-card-item {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.mine-header-card-icon {
+  width: 25PX;
+  height: 25PX;
+  margin-bottom: 5PX;
+}
+
+.mine-header-card-txt {
+  font-size: small;
+  color: #5b5b5b;
+}
+
+.mine-header-name {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.mine-header-name-txt {
+  font-size: x-large;
+  color: white;
+  margin-top: 5PX;
+}
+
+.mine-header-tips {
+  display: inline-flex;
+  flex-direction: column;
+  height: 45PX;
+  padding: 0 10PX;
+  justify-content: center;
+}
+
+.mine-header-tips-txt {
+  font-size: small;
+  color: #cccccc;
+}
+
+.mine-item-header {
+  display: inline-flex;
+  flex: auto;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header-font {
+  font-size: medium;
+  color: white;
+}
+
+.mine-icon-size {
+  display: inline-flex;
+  width: 20vw;
+  height: 60PX;
+  padding-right: 15PX;
+  align-items: center;
+  justify-content: center;
+  background-color: #37c;
+}
+
+.mine-login-btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 95vw;
+  border-radius: 2PX;
+  height: 45PX;
+  margin: 10PX 2.5vw 180PX;
+}
+
+.mine-bottom-space-view {
+  display: inline-flex;
+  flex-direction: column;
+  margin: 10PX 2.5vw 90PX;
+}
+
+.mine-login-btn-txt {
+  font-size: medium;
+  color: #fff;
+}
+
+.mine-item-start {
+  width: 20PX;
+  height: 20PX;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10PX;
+}
+
+.mine-item-list-view {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 2;
+  height: 40PX;
+  background-color: #37c;
+  justify-content: center;
+  padding-left: 10PX;
+}
+
+.mine-item-content {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+
+.mine-item-list-tips {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+  height: 20PX;
+  justify-content: center;
+  padding-left: 10PX;
+}
+
+.mine-item-value-txt {
+  font-size: large;
+  color: #ffffff;
+}
+
+.mine-item-view-title {
+  display: inline-flex;
+  flex-direction: column;
+  width: 100%;
+  height: 60PX;
+  margin-bottom: 10PX;
+
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 0 10PX;
+}
+
+
+

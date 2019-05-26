@@ -1,11 +1,12 @@
 import '@tarojs/async-await'
-import Taro, { Component } from '@tarojs/taro'
-import { Provider } from '@tarojs/redux'
+import Taro, {Component} from '@tarojs/taro'
+import {Provider} from '@tarojs/redux'
 
 import Index from './pages/index'
+import 'taro-ui/dist/style/index.scss'
 
 import zoro from '@opcjs/zoro' // 引入zoro
-import { createLoading } from '@opcjs/zoro-plugin'
+import {createLoading} from '@opcjs/zoro-plugin'
 import models from './models/index'
 import mixins from './mixins'
 
@@ -33,8 +34,16 @@ class App extends Component {
   config = {
     pages: [
       'pages/index/index',
+      'pages/index/detail/Detail',
       'pages/subscribe/index',
       'pages/mine/index',
+      'pages/mine/tabs/Vips',
+      'pages/mine/tabs/Certificate',
+      'pages/mine/tabs/Course',
+      'pages/mine/tabs/Coach',
+      'pages/mine/perfiles/Detail',
+      'pages/mine/perfiles/FeedBack',
+      'pages/mine/perfiles/List',
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -42,6 +51,11 @@ class App extends Component {
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'white',
       enablePullDownRefresh: true
+    },
+    permission: {
+      "scope.userLocation": {
+        "desc": "你的位置信息将用于为你提供附近的服务站点"
+      }
     },
     tabBar: {
       color: "#626567",
@@ -57,7 +71,7 @@ class App extends Component {
         },
         {
           pagePath: 'pages/subscribe/index',
-          text: "发现",
+          text: "位置",
           iconPath: "./images/tab/discovery.png",
           selectedIconPath: "./images/tab/discovery_focus.png"
         },
@@ -72,6 +86,10 @@ class App extends Component {
   }
 
   componentDidMount() {
+    wx.cloud.init({
+      env: 'qcitycloud-cffa3a', // 前往云控制台获取环境 ID
+      traceUser: true // 是否要捕捉每个用户的访问记录。设置为 true，用户可在管理端看到用户访问记录
+    })
     app.setup()
   }
 
