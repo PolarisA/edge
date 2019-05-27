@@ -17,6 +17,14 @@ import { AtIcon } from 'taro-ui'
 import './style.scss'
 
 class Detail extends Component {
+  config = {
+    navigationBarTitleText: ''
+  }
+
+  componentDidMount() {
+    const { ...params } = this.$router.params
+    console.log("=== params -=--> ", params)
+  }
 
   constructor(props) {
     super(props)
