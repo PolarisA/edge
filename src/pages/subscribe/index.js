@@ -71,7 +71,7 @@ function setCenter(id, latitude, longitude) {
   return markers
 }
 
-@connect(({ discover }) => ({ discover }))
+@connect(({discover}) => ({discover}))
 class Subscribe extends Component {
   config = {
     navigationBarTitleText: ''

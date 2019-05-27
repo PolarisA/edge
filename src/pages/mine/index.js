@@ -39,14 +39,14 @@ import ic_sport from '../../images/mine/ic_sport_value.png'
 import ic_coach from '../../images/mine/ic_perfile.png'
 
 const personal = [
-  { title: '我的预约', desc: '', icon: ic_cafe, screen: '' },
-  { title: '我的运动量', desc: '', icon: ic_sport, screen: '' },
-  { title: '邀请奖励', desc: '已邀请', icon: ic_gifts, screen: '' },
-  { title: '燃脂计划', desc: '', icon: ic_data, screen: '' },
-  { title: '打卡记录', desc: '', icon: ic_done, screen: '' },
-  { title: '系统消息', desc: '', icon: ic_news, screen: '' },
-  { title: '申请教练', desc: '', icon: ic_coach, screen: '' },
-  { title: '联系客服', desc: '', icon: ic_face, screen: '' },
+  { title: '我的预约', desc: '', icon: ic_cafe, screen: 'pages/mine/perfiles/Detail?' },
+  { title: '我的运动量', desc: '', icon: ic_sport, screen: 'pages/mine/perfiles/List?' },
+  { title: '邀请奖励', desc: '', icon: ic_gifts, screen: 'pages/mine/perfiles/Detail?' },
+  { title: '燃脂计划', desc: '', icon: ic_data, screen: 'pages/mine/perfiles/Detail?' },
+  { title: '打卡记录', desc: '', icon: ic_done, screen: 'pages/mine/perfiles/List?' },
+  { title: '系统消息', desc: '', icon: ic_news, screen: 'pages/mine/perfiles/List?' },
+  { title: '申请教练', desc: '', icon: ic_coach, screen: 'pages/mine/perfiles/FeedBack?' },
+  { title: '联系客服', desc: '', icon: ic_face, screen: 'pages/mine/perfiles/FeedBack?' },
 ]
 
 const tabCards = [
@@ -143,7 +143,11 @@ class Mine extends Component {
 
   onPersonalClick(item) {
     console.log("== onPersonalClick item -=->", item)
+    const { screen } = item
 
+    Taro.navigateTo({
+      url: `/${screen}`
+    })
   }
 
   render() {
