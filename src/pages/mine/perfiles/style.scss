@@ -74,3 +74,112 @@
   color: #FFF;
   margin-left: 5PX;
 }
+
+
+//<<<<<<<<<<<<<<<<<<<<<<<<<<< Message Style <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+.profile-message {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  height: 100vh;
+}
+
+.message-scrollView {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.message-card-content {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+  width: 94vw;
+  margin: 5PX 3vw 20PX;
+}
+
+.message-card-content-view {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+  width: 94vw;
+  margin-top: 5PX;
+  border-radius: 2PX;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.message-card-time {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40vw;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 2PX;
+}
+
+.running-content-item-title {
+  display: inline-flex;
+  flex-direction: row;
+  flex: 1;
+  align-items: center;
+}
+
+.running-content-item-burn {
+  display: inline-flex;
+  flex-direction: row;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.running-item-place {
+  display: inline-flex;
+  flex-direction: row;
+  flex: 1;
+  align-items: center;
+}
+
+.running-time-icon {
+  width: 20PX;
+  height: 20PX;
+  margin: 5PX;
+}
+
+.running-item-title-txt {
+  font-size: small;
+  color: #5b5b5b;
+}
+
+.running-item-burn-txt {
+  font-size: small;
+  color: #5b5b5b;
+  margin-right: 5PX;
+}
+
+.running-item-tips-txt {
+  font-size: x-large;
+  color: #333333;
+}
+
+.message-card-time-txt {
+  font-size: small;
+  color: #333333;
+}
+
+.message-card-title-txt {
+  font-size: medium;
+  font-weight: bold;
+  color: #333333;
+  margin: 5PX;
+}
+
+.message-card-content-txt {
+  font-size: small;
+  color: #5b5b5b;
+  margin-left: 5PX;
+  margin-right: 5PX;
+  margin-bottom: 5PX;
+}

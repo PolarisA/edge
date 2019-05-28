@@ -190,6 +190,41 @@ export const setMockData = (value, type) => {
       return mock
     }
 
+    case 'MESSAGE': {
+      for (let i = 0; i < value; i++) {
+        let title = Mock.Random.ctitle(7, 20)
+        let _head = '2019-' + Mock.Random.datetime('MM-dd')
+        let _body = Mock.Random.datetime('A HH:mm')
+        let content = Mock.Random.cparagraph(3)
+        const props = {
+          time: _head + " " + _body,
+          title,
+          content,
+        }
+        mock.push(props)
+      }
+      return mock
+    }
+
+    case 'EXERCISES': {
+      for (let i = 0; i < value; i++) {
+        let _head = '2019-' + Mock.Random.datetime('MM-dd')
+        let _body = Mock.Random.datetime('A HH:mm')
+        let running = Mock.Random.time()
+        let burn = (Math.random() * (280 + i)).toFixed(2)
+        let point = parseInt(Math.random() * 16)
+
+        const props = {
+          time: _head + " " + _body,
+          running,
+          burn,
+          point
+        }
+        mock.push(props)
+      }
+      return mock
+    }
+
     default:
       break
   }
