@@ -40,14 +40,14 @@ import ic_sport from '../../images/mine/ic_sport_value.png'
 import ic_coach from '../../images/mine/ic_perfile.png'
 
 const personal = [
-  { title: '我的预约', dName: '', type: pType.RESERVATION, icon: ic_cafe, screen: 'pages/mine/perfiles/Detail?' },
-  { title: '我的运动量', dName: '', type: pType.EXERCISES, icon: ic_sport, screen: 'pages/mine/perfiles/List?' },
-  { title: '邀请奖励', dName: '', type: pType.BLOCK_INVITES, icon: ic_gifts, screen: 'pages/mine/perfiles/Detail?' },
-  { title: '燃脂计划', dName: '', type: pType.PLAN_UPDATE, icon: ic_data, screen: 'pages/mine/perfiles/Detail?' },
-  { title: '打卡记录', dName: '', type: pType.DEFINE_MUTEX, icon: ic_done, screen: 'pages/mine/perfiles/List?' },
-  { title: '系统消息', dName: '', type: pType.SYSTEM_MESSAGE, icon: ic_news, screen: 'pages/mine/perfiles/List?' },
-  { title: '申请教练', dName: 'apply', type: pType.AUTO_INCREMENT, icon: ic_coach, screen: 'pages/mine/perfiles/FeedBack?' },
-  { title: '问题反馈', dName: 'feedback', type: pType.PUBLIC_MENU_CONTACT, icon: ic_face, screen: 'pages/mine/perfiles/FeedBack?' },
+  { title: '我的预约', dName: '', type: pType.RESERVATION, icon: ic_cafe, screen: 'pages/mine/profile/Detail?' },
+  { title: '我的运动量', dName: '', type: pType.EXERCISES, icon: ic_sport, screen: 'pages/mine/profile/List?' },
+  { title: '邀请奖励', dName: '', type: pType.BLOCK_INVITES, icon: ic_gifts, screen: 'pages/mine/profile/List?' },
+  { title: '燃脂计划', dName: '', type: pType.PLAN_UPDATE, icon: ic_data, screen: 'pages/mine/profile/Detail?' },
+  { title: '打卡记录', dName: '', type: pType.DEFINE_MUTEX, icon: ic_done, screen: 'pages/mine/profile/Detail?' },
+  { title: '系统消息', dName: '', type: pType.SYSTEM_MESSAGE, icon: ic_news, screen: 'pages/mine/profile/List?' },
+  { title: '申请教练', dName: 'apply', type: pType.AUTO_INCREMENT, icon: ic_coach, screen: 'pages/mine/profile/FeedBack?' },
+  { title: '问题反馈', dName: 'feedback', type: pType.PUBLIC_MENU_CONTACT, icon: ic_face, screen: 'pages/mine/profile/FeedBack?' },
 ]
 
 const tabCards = [

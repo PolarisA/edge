@@ -41,9 +41,9 @@ class App extends Component {
       'pages/mine/tabs/Certificate',
       'pages/mine/tabs/Course',
       'pages/mine/tabs/Coach',
-      'pages/mine/perfiles/Detail',
-      'pages/mine/perfiles/FeedBack',
-      'pages/mine/perfiles/List',
+      'pages/mine/profile/Detail',
+      'pages/mine/profile/FeedBack',
+      'pages/mine/profile/List',
     ],
     window: {
       backgroundTextStyle: 'light',

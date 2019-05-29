@@ -1,4 +1,5 @@
 import Mock from "mockjs";
+import { localArea } from "../constants/config";
 
 export const promisify = (func, ctx) => {
   // 返回一个新的function
@@ -219,6 +220,21 @@ export const setMockData = (value, type) => {
           running,
           burn,
           point
+        }
+        mock.push(props)
+      }
+      return mock
+    }
+
+    case 'DEFINE_MUTEX': {
+      for (let i = 0; i < value; i++) {
+        let value = '2019' + Mock.Random.datetime('/MM/dd')
+        let point = parseInt(Math.random() * 16)
+        let desc = localArea[point].name
+
+        const props = {
+          value,
+          desc,
         }
         mock.push(props)
       }

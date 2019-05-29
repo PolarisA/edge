@@ -183,3 +183,19 @@
   margin-right: 5PX;
   margin-bottom: 5PX;
 }
+
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Detail Style <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+.detail-calendar-page {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 60vh;
+}
+
+.detail-head-line {
+  display: inline-flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 20PX;
+}
