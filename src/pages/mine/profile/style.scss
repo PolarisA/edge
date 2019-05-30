@@ -190,12 +190,66 @@
   display: flex;
   flex-direction: column;
   width: 100vw;
-  height: 60vh;
+  height: 100vh;
 }
 
-.detail-head-line {
+.detail-calender-head-bar {
+  display: inline-flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 120PX;
+}
+
+.detail-calendar-desc-bar {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100vw;
+  height: 40PX;
+}
+
+.detail-calendar-column-part {
   display: inline-flex;
   flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-calendar-line {
+  width: 94vw;
+  height: 1PX;
+  background-color: rgba(0, 0, 0, 0.05);
+  margin-left: 3vw;
+  margin-right: 3vw;
+  margin-bottom: 5PX;
+}
+
+.detail-calendar-column-txt {
+  font-size: small;
+  color: #5b5b5b;
+}
+
+.detail-calendar-head-part {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.detail-calendar-row-bar {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  width: 94vw;
+  height: 5PX;
+  margin-left: 3vw;
+  margin-right: 3vw;
+}
+
+.detail-calendar-bottom {
   width: 100vw;
-  height: 20PX;
+  height: 50PX;
+  background-color: #fff;
 }

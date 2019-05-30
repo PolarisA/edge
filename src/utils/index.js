@@ -26,6 +26,14 @@ export const promisify = (func, ctx) => {
   };
 };
 
+
+export const truthy = (item) => {
+  if (item === null || item === undefined) {
+    return false
+  }
+  return true
+};
+
 export const promiseImage = (url) => {
   return new Promise(function (resolve, reject) {
     resolve(url)
@@ -235,6 +243,7 @@ export const setMockData = (value, type) => {
         const props = {
           value,
           desc,
+          point,
         }
         mock.push(props)
       }
@@ -272,6 +281,45 @@ export const isEmpty = (obj) => {
   }
 
   return true;
+};
+
+/**
+ * 数组去重 by 关键字
+ * @param array
+ * @param key
+ * @returns {*}
+ */
+export const uniqueByKey = (array, key) => {
+  if (!truthy(array)) {
+    return array
+  }
+
+  let mArray = [];
+  array.forEach((aData) => {
+    if (aData) {
+      mArray.push(aData);
+    }
+  });
+
+  const result = [array[0]];
+  for (let i = 0; i < array.length; i++) {
+    let item = array[i];
+    let repeat = false;
+
+    for (let j = 0; j < result.length; j++) {
+
+      if (item[key] === result[j][key]) {
+        repeat = true;
+        break
+      }
+    }
+
+    if (!repeat) {
+      result.push(item)
+    }
+  }
+
+  return result;
 };
 
 /**
