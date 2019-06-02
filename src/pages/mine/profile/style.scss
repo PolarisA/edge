@@ -253,3 +253,47 @@
   height: 50PX;
   background-color: #fff;
 }
+
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+.profile-invitation {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  height: 100vh;
+}
+
+.invitation-head-view {
+  display: inline-flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 50vw;
+  align-items: center;
+  justify-content: center;
+}
+
+.invitation-head-view-part {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.invitation-head-line {
+  width: 1PX;
+  height: 30vw;
+  background-color: #efefef;
+}
+
+.invitation-head-txt {
+  font-size: 40PT;
+  color: #333333;
+}
+
+.invitation-head-tips {
+  font-size: small;
+  color: #5b5b5b;
+  margin-top: 15PX;
+}

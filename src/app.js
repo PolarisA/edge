@@ -44,6 +44,7 @@ class App extends Component {
       'pages/mine/profile/Detail',
       'pages/mine/profile/FeedBack',
       'pages/mine/profile/List',
+      'pages/mine/profile/Invitation',
     ],
     window: {
       backgroundTextStyle: 'light',
