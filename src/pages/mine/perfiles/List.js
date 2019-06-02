@@ -4,7 +4,7 @@
  * @Description :
  **/
 
-import Taro, { Component } from '@tarojs/taro'
+import Taro, {Component} from '@tarojs/taro'
 import {
   View,
   Text,
@@ -12,15 +12,23 @@ import {
   Image,
   ScrollView,
 } from '@tarojs/components'
-import { AtIcon } from 'taro-ui'
+import {AtIcon} from 'taro-ui'
 
 import './style.scss'
 
 class List extends Component {
+  config = {
+    navigationBarTitleText: ''
+  }
 
   constructor(props) {
     super(props)
     this.state = {}
+  }
+
+  componentDidMount() {
+    const {...params} = this.$router.params
+    console.log('=== params -=-->', params)
   }
 
 

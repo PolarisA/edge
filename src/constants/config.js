@@ -100,6 +100,17 @@ export const teamBuy = [
 
 export const orderSort = [ic_order_1, ic_order_2, ic_order_3, ic_order_4, ic_order_5, ic_order_6, ic_order_7, ic_order_8, ic_order_9, ic_order_0]
 
+export const pType = {
+  RESERVATION: 0,
+  EXERCISE: 1,
+  BLOCKED_INVITES: 2,
+  PlAN_UPDATE: 3,
+  DEFINE_MUTEX: 4,
+  MESSAGE_SYSTEM: 5,
+  AUTO_INCREMENT: 6,
+  PUBLIC_MENU_CONTACT: 7,
+}
+
 export const commentStart = [
   '⭐',
   '⭐⭐',

@@ -17,11 +17,20 @@ import { AtIcon } from 'taro-ui'
 import './style.scss'
 
 class FeedBack extends Component {
+  config = {
+    navigationBarTitleText: ''
+  }
 
   constructor(props) {
     super(props)
     this.state = {}
   }
+
+  componentDidMount() {
+    const {...params} = this.$router.params
+    console.log('=== params -=-->', params)
+  }
+
 
 
   render() {

@@ -4,7 +4,7 @@
  * @Description :
  **/
 
-import Taro, { Component } from '@tarojs/taro'
+import Taro, {Component} from '@tarojs/taro'
 import {
   View,
   Text,
@@ -13,10 +13,11 @@ import {
   ScrollView,
 } from '@tarojs/components'
 
-import { AtNoticebar } from 'taro-ui'
-import { connect } from '@tarojs/redux'
-import { dispatcher } from '@opcjs/zoro'
-import { delay } from '../../utils/index'
+import {AtNoticebar} from 'taro-ui'
+import {connect} from '@tarojs/redux'
+import {dispatcher} from '@opcjs/zoro'
+import {delay} from '../../utils/index'
+import {pType} from '../../constants/config'
 
 import './index.scss'
 
@@ -38,25 +39,26 @@ import ic_gifts from '../../images/mine/ic_gifts.png'
 import ic_sport from '../../images/mine/ic_sport_value.png'
 import ic_coach from '../../images/mine/ic_perfile.png'
 
+
 const personal = [
-  { title: '我的预约', desc: '', icon: ic_cafe, screen: 'pages/mine/perfiles/Detail?' },
-  { title: '我的运动量', desc: '', icon: ic_sport, screen: 'pages/mine/perfiles/List?' },
-  { title: '邀请奖励', desc: '', icon: ic_gifts, screen: 'pages/mine/perfiles/Detail?' },
-  { title: '燃脂计划', desc: '', icon: ic_data, screen: 'pages/mine/perfiles/Detail?' },
-  { title: '打卡记录', desc: '', icon: ic_done, screen: 'pages/mine/perfiles/List?' },
-  { title: '系统消息', desc: '', icon: ic_news, screen: 'pages/mine/perfiles/List?' },
-  { title: '申请教练', desc: '', icon: ic_coach, screen: 'pages/mine/perfiles/FeedBack?' },
-  { title: '联系客服', desc: '', icon: ic_face, screen: 'pages/mine/perfiles/FeedBack?' },
+  {title: '我的预约', type: pType.RESERVATION, icon: ic_cafe, screen: 'pages/mine/perfiles/Detail?'},
+  {title: '我的运动量', type: pType.EXERCISE, icon: ic_sport, screen: 'pages/mine/perfiles/List?'},
+  {title: '邀请奖励', type: pType.BLOCKED_INVITES, icon: ic_gifts, screen: 'pages/mine/perfiles/Detail?'},
+  {title: '燃脂计划', type: pType.PlAN_UPDATE, icon: ic_data, screen: 'pages/mine/perfiles/Detail?'},
+  {title: '打卡记录', type: pType.DEFINE_MUTEX, icon: ic_done, screen: 'pages/mine/perfiles/List?'},
+  {title: '系统消息', type: pType.MESSAGE_SYSTEM, icon: ic_news, screen: 'pages/mine/perfiles/List?'},
+  {title: '申请教练', type: pType.AUTO_INCREMENT, icon: ic_coach, screen: 'pages/mine/perfiles/FeedBack?'},
+  {title: '联系客服', type: pType.PUBLIC_MENU_CONTACT, icon: ic_face, screen: 'pages/mine/perfiles/FeedBack?'},
 ]
 
 const tabCards = [
-  { name: '会员卡', icon: ic_vip_card, screen: 'pages/mine/tabs/Vips' },
-  { name: '优惠券', icon: ic_shell, screen: 'pages/mine/tabs/Certificate' },
-  { name: '课程', icon: ic_calendar, screen: 'pages/mine/tabs/Course' },
-  { name: '私教', icon: ic_teacher, screen: 'pages/mine/tabs/Coach' },
+  {name: '会员卡', icon: ic_vip_card, screen: 'pages/mine/tabs/Vips'},
+  {name: '优惠券', icon: ic_shell, screen: 'pages/mine/tabs/Certificate'},
+  {name: '课程', icon: ic_calendar, screen: 'pages/mine/tabs/Course'},
+  {name: '私教', icon: ic_teacher, screen: 'pages/mine/tabs/Coach'},
 ]
 
-@connect(({ mine }) => ({ mine }))
+@connect(({mine}) => ({mine}))
 class Mine extends Component {
   config = {
     navigationBarTitleText: ''
@@ -73,7 +75,7 @@ class Mine extends Component {
   }
 
   componentDidMount() {
-    Taro.getStorage({ key: 'userInfo' })
+    Taro.getStorage({key: 'userInfo'})
       .then(res => {
         console.log(">>> res >>", res)
         const {
@@ -93,7 +95,7 @@ class Mine extends Component {
 
   _showLoading = (loading) => {
     if (loading) {
-      Taro.showLoading({ title: '加载中' })
+      Taro.showLoading({title: '加载中'})
     } else {
       Taro.hideLoading()
     }
@@ -125,7 +127,7 @@ class Mine extends Component {
         isLogin: true,
       })
 
-      Taro.setStorage({ key: 'userInfo', data: userInfo.detail.userInfo })
+      Taro.setStorage({key: 'userInfo', data: userInfo.detail.userInfo})
         .then(rst => {
           //将用户信息存入缓存中
           console.log("=== rst >>> ", rst)
@@ -135,7 +137,7 @@ class Mine extends Component {
 
   onTabBarClick(item) {
     console.log("=== onTabBarClick item -=-> ", item)
-    const { screen } = item
+    const {screen} = item
     Taro.navigateTo({
       url: `/${screen}`
     })
@@ -143,10 +145,10 @@ class Mine extends Component {
 
   onPersonalClick(item) {
     console.log("== onPersonalClick item -=->", item)
-    const { screen } = item
+    const {screen, type} = item
 
     Taro.navigateTo({
-      url: `/${screen}`
+      url: `/${screen}type=${type}&test=${'test'}`
     })
   }
 
