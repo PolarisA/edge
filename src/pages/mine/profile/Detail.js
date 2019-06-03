@@ -58,6 +58,7 @@ class Detail extends Component {
   async initData(params) {
     await this._showLoading(true)
     const { type, base } = params
+    const { date } = this.state
     let point = []
 
     switch (type * 1) {
@@ -67,7 +68,11 @@ class Detail extends Component {
         break
 
       case pType.DEFINE_MUTEX:
-        point = await setMockData(parseInt(Math.random() * 150), 'DEFINE_MUTEX')
+        let _point = await setMockData(parseInt(Math.random() * 150), 'DEFINE_MUTEX')
+        point = await _point.filter((item) => {
+          let _date = (item.value).split('/').join('')
+          return _date <= date
+        })
         this.initMutex(point)
         break
 
@@ -85,7 +90,6 @@ class Detail extends Component {
   }
 
   initMutex = (point) => {
-    console.log('=== initMutex point >>> ', point)
     let a = 0, b = 0, c = 0, d = 0, e = 0, f = 0, g = 0, h = 0, i = 0, j = 0, k = 0, l = 0, m = 0, n = 0, o = 0;
     let _item = {}
     let pieData = []
@@ -252,14 +256,33 @@ class Detail extends Component {
     return pointObj
   }
 
+  getDateValue(date, point) {
+    let pointObj = { _value: 0 }
+    point.map((item, index) => {
+      if (date === item.value) {
+        pointObj._value = index
+      }
+      return pointObj
+    })
+    return pointObj
+  }
+
   onDayClick = (date) => {
+    const { ...params } = this.$router.params
+    let pieType = params.type * 1 === pType.DEFINE_MUTEX
     const { point } = this.state
+
+    let _pieDate = date.value.split('-').join('/')
+    const { _value } = this.getDateValue(_pieDate, point)
+
     let _date = date.value.split('-').join('')
     const { status, value } = this.setDateInstall(_date)
 
-    let content = status === 'NO' ? `已完成课程：${point[value].desc}` : `有预约课程：${point[value].desc}`
-    value !== 0 && Taro.showModal({
-      title: '课程提醒',
+    let content = pieType ? `${point[_value].desc}`
+      : status === 'NO' ? `已完成课程：${point[value].desc}` : `有预约课程：${point[value].desc}`
+
+    value !== 0 || pieType && Taro.showModal({
+      title: pieType ? '打卡记录' : '课程提醒',
       content,
     }).then(res => console.log(res.confirm, res.cancel))
   }
@@ -279,6 +302,7 @@ class Detail extends Component {
   refPieChart = (node) => this.pieChart = node
 
   render() {
+    console.log("==== Detail state ===> ", this.state)
     const { point, overdue, unfinished } = this.state
     const { ...params } = this.$router.params
     let pageType = params.type * 1 === pType.RESERVATION
