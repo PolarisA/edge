@@ -130,6 +130,35 @@
   padding-right: 10PX;
 }
 
+.mine-customer-btn {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #fff;
+  width: 100%;
+  height: 50PX;
+  border-color: #fff;
+  padding-left: 10PX;
+  padding-right: 10PX;
+}
+
+Button.mine-middle-btn {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+  height: 50PX;
+  width: 100%;
+  margin-left: -5PX;
+  align-items: flex-start;
+  justify-content: center;
+  background: transparent;
+
+  &::after {
+    border: none;
+    background: transparent;
+  }
+}
+
 .mine-item-icon {
   width: 20PX;
   height: 20PX;
@@ -145,6 +174,12 @@
   font-size: small;
   color: #5b5b5b;
   margin-left: 5PX;
+}
+
+.mine-customer-btn-txt {
+  font-size: small;
+  color: #5b5b5b;
+  margin-left: -5PX;
 }
 
 .mine-vip-box {

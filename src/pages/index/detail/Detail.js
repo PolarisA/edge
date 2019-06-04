@@ -11,12 +11,19 @@ import {
   Text,
   Image,
   Swiper,
+  Button,
   ScrollView,
   SwiperItem
 } from '@tarojs/components'
 
 import { setMockData } from '../../../utils/index'
-import { deviceIcon, teamBuy, orderSort, commentStart } from '../../../constants/config'
+import {
+  deviceIcon,
+  teamBuy,
+  orderSort,
+  commentStart,
+  share_logo
+} from '../../../constants/config'
 
 import './Detail.style.scss'
 
@@ -73,7 +80,7 @@ class Detail extends Component {
   }
 
   async initCloud(params, qqMapSdk) {
-    this._showLoading(true)
+    await this._showLoading(true)
     const { id, shopId } = params
     const db = wx.cloud.database()
 
@@ -153,13 +160,34 @@ class Detail extends Component {
     })
   }
 
-  onShowMapDetail = () => {
+  onShareAppMessage(res) {
+    const { info: { name } } = this.state
+    return {
+      title: `我在${name}健身，快来看看吧`,
+      path: 'pages/index/detail/Detail',
+      imageUrl: share_logo,
+      success: res => {
+        console.log("=== share success res >>> ", res)
+      },
+      fail: err => {
+        console.log("=== share fail err >>> ", err)
+      }
+    }
+  }
 
+  onShowMapDetail = () => {
+    const {
+      info: {
+        _id
+      }
+    } = this.state
+    Taro.navigateTo({
+      url: `/pages/subscribe/detail/Location?id=${_id}`
+    })
   }
 
   render() {
     console.log("==== Detail params --> ", this.$router.params)
-    console.log("==== Detail props --> ", this.props)
     console.log("==== Detail state --> ", this.state)
 
     const {
@@ -383,6 +411,7 @@ class Detail extends Component {
             }
             <Text className='home-detail-appoint-btn-txt'>{`${!!appoint ? '已预约' : '预约'}`}</Text>
           </View>
+          <View className='home-detail-bottom-bar-line'/>
 
           <View className='home-detail-appoint-btn' onClick={this.onCollect}>
             {
@@ -391,6 +420,20 @@ class Detail extends Component {
                 : <AtIcon value='star' size='18' color='#CCC'/>
             }
             <Text className='home-detail-appoint-btn-txt'>{`${!!collect ? '已收藏' : '收藏'}`}</Text>
+          </View>
+          <View className='home-detail-bottom-bar-line'/>
+
+          <View className='home-detail-appoint-btn'>
+            <View className='home-detail-share-btn-left'>
+              <AtIcon value='share' size='18' color='#CCC'/>
+            </View>
+            <Button
+              className='home-detail-share-btn'
+              sendMessagePath={`pages/index/index`}
+              openType="share"
+              hoverClass='none'>
+              <Text className='home-detail-appoint-btn-txt'>{`分享`}</Text>
+            </Button>
           </View>
         </View>
       </View>
