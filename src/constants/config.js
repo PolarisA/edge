@@ -3,11 +3,7 @@
  * @Date : 2019-04-08
  * @Description :
  **/
-
-// 请求连接前缀
-export const baseUrl = 'https://ms-api.caibowen.net';
-export const topList = 'http://v.juhe.cn/toutiao/index';
-export const movieList = 'https://api.douban.com'
+export const share_logo = 'https://7163-qcitycloud-cffa3a-1258938492.tcb.qcloud.la/share/app_share_logo.jpg?sign=7bbeb0e5f834410ea1cd3e6cc289c3b3&t=1559627908'
 
 import ic_outdoor from '../images/home/ic_outdoor.png'
 import ic_oval from '../images/home/ic_oval.png'

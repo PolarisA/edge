@@ -17,7 +17,7 @@ import { AtNoticebar } from 'taro-ui'
 import { connect } from '@tarojs/redux'
 import { dispatcher } from '@opcjs/zoro'
 import { delay } from '../../utils/index'
-import { pType } from '../../constants/config'
+import { pType, share_logo } from '../../constants/config'
 
 import './index.scss'
 
@@ -43,7 +43,6 @@ const personal = [
   { title: '我的预约', dName: '', type: pType.RESERVATION, icon: ic_cafe, screen: 'pages/mine/profile/Detail?' },
   { title: '我的运动量', dName: '', type: pType.EXERCISES, icon: ic_sport, screen: 'pages/mine/profile/List?' },
   { title: '邀请奖励', dName: '', type: pType.BLOCK_INVITES, icon: ic_gifts, screen: 'pages/mine/profile/List?' },
-  { title: '燃脂计划', dName: '', type: pType.PLAN_UPDATE, icon: ic_data, screen: 'pages/mine/profile/Detail?' },
   { title: '打卡记录', dName: '', type: pType.DEFINE_MUTEX, icon: ic_done, screen: 'pages/mine/profile/Detail?' },
   { title: '系统消息', dName: '', type: pType.SYSTEM_MESSAGE, icon: ic_news, screen: 'pages/mine/profile/List?' },
   { title: '申请教练', dName: 'apply', type: pType.AUTO_INCREMENT, icon: ic_coach, screen: 'pages/mine/profile/FeedBack?' },
@@ -219,8 +218,24 @@ class Mine extends Component {
               )
             })
           }
-        </View>
+          <View className='mine-item-view'>
+            <Image src={ic_data} className='mine-item-icon'/>
+            <Button
+              className='mine-middle-btn'
+              showMessageCard={true}
+              sendMessageImg={share_logo}
+              sendMessageTitle={'请在下方输入联系客服'}
+              sendMessagePath={`/pages/mine/index`}
+              openType="contact"
+              hoverClass='none'>
+              <Text className='mine-customer-btn-txt'>
+                {'联系客服'}
+              </Text>
+            </Button>
 
+            <Image src={ic_right} className='mine-item-right-icon'/>
+          </View>
+        </View>
         {
           !!isLogin ? <View className='mine-bottom-space-view'/> :
             <Button
