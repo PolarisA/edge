@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d980934-0b51-4712-b249-86234b170618" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pages/mine/profile/Invitation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/mine/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/mine/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/mine/profile/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/mine/profile/style.scss" afterDir="false" />
-    </list>
+    <list default="true" id="3d980934-0b51-4712-b249-86234b170618" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -32,8 +25,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/mine/profile/Invitation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+            <state relative-caret-position="247">
+              <caret line="13" column="78" selection-start-line="13" selection-start-column="78" selection-end-line="13" selection-end-column="78" />
               <folding>
                 <element signature="e#0#44#0" expanded="true" />
               </folding>
@@ -314,12 +307,12 @@
       <workItem from="1559028870323" duration="22241000" />
       <workItem from="1559126187080" duration="564000" />
       <workItem from="1559126755402" duration="22466000" />
-      <workItem from="1559476633274" duration="2512000" />
+      <workItem from="1559476633274" duration="2787000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="279402000" />
+    <option name="totallyTimeSpent" value="279677000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
@@ -685,8 +678,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/mine/profile/Invitation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+        <state relative-caret-position="247">
+          <caret line="13" column="78" selection-start-line="13" selection-start-column="78" selection-end-line="13" selection-end-column="78" />
           <folding>
             <element signature="e#0#44#0" expanded="true" />
           </folding>
