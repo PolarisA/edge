@@ -89,8 +89,6 @@ class Course extends Component {
 
   render() {
     const { plan, isPlan, sequence } = this.state
-    // console.log("=== Course props -=-> ", this.props)
-    // console.log("=== Course state -=-> ", this.state)
 
     return (
       <View className='course-page'>

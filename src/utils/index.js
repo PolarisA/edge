@@ -1,4 +1,5 @@
 import Mock from "mockjs";
+import { localArea } from "../constants/config";
 
 export const promisify = (func, ctx) => {
   // 返回一个新的function
@@ -23,6 +24,14 @@ export const promisify = (func, ctx) => {
       });
     })
   };
+};
+
+
+export const truthy = (item) => {
+  if (item === null || item === undefined) {
+    return false
+  }
+  return true
 };
 
 export const promiseImage = (url) => {
@@ -190,6 +199,57 @@ export const setMockData = (value, type) => {
       return mock
     }
 
+    case 'MESSAGE': {
+      for (let i = 0; i < value; i++) {
+        let title = Mock.Random.ctitle(7, 20)
+        let _head = '2019-' + Mock.Random.datetime('MM-dd')
+        let _body = Mock.Random.datetime('A HH:mm')
+        let content = Mock.Random.cparagraph(3)
+        const props = {
+          time: _head + " " + _body,
+          title,
+          content,
+        }
+        mock.push(props)
+      }
+      return mock
+    }
+
+    case 'EXERCISES': {
+      for (let i = 0; i < value; i++) {
+        let _head = '2019-' + Mock.Random.datetime('MM-dd')
+        let _body = Mock.Random.datetime('A HH:mm')
+        let running = Mock.Random.time()
+        let burn = (Math.random() * (280 + i)).toFixed(2)
+        let point = parseInt(Math.random() * 16)
+
+        const props = {
+          time: _head + " " + _body,
+          running,
+          burn,
+          point
+        }
+        mock.push(props)
+      }
+      return mock
+    }
+
+    case 'DEFINE_MUTEX': {
+      for (let i = 0; i < value; i++) {
+        let value = '2019' + Mock.Random.datetime('/MM/dd')
+        let point = parseInt(Math.random() * 16)
+        let desc = localArea[point].name
+
+        const props = {
+          value,
+          desc,
+          point,
+        }
+        mock.push(props)
+      }
+      return mock
+    }
+
     default:
       break
   }
@@ -221,6 +281,45 @@ export const isEmpty = (obj) => {
   }
 
   return true;
+};
+
+/**
+ * 数组去重 by 关键字
+ * @param array
+ * @param key
+ * @returns {*}
+ */
+export const uniqueByKey = (array, key) => {
+  if (!truthy(array)) {
+    return array
+  }
+
+  let mArray = [];
+  array.forEach((aData) => {
+    if (aData) {
+      mArray.push(aData);
+    }
+  });
+
+  const result = [array[0]];
+  for (let i = 0; i < array.length; i++) {
+    let item = array[i];
+    let repeat = false;
+
+    for (let j = 0; j < result.length; j++) {
+
+      if (item[key] === result[j][key]) {
+        repeat = true;
+        break
+      }
+    }
+
+    if (!repeat) {
+      result.push(item)
+    }
+  }
+
+  return result;
 };
 
 /**

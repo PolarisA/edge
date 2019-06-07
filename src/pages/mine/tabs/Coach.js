@@ -8,24 +8,17 @@ import Taro, { Component } from '@tarojs/taro'
 import {
   View,
   Text,
-  Button,
   Image,
-  ScrollView,
 } from '@tarojs/components'
 import { AtIcon } from 'taro-ui'
 
 import './index.styles.scss'
 
-import ic_coach_one from '../../../images/mine/ic_coach_boy2.png'
-import ic_coach_two from '../../../images/mine/ic_coach_grils.png'
-import ic_coach_three from '../../../images/mine/ic_coach_boy1.png'
-
-
 const coachList = [
   {
     id: 400101,
     name: '张雄兵',
-    avatar: ic_coach_one,
+    avatar: 'https://7163-qcitycloud-cffa3a-1258938492.tcb.qcloud.la/coach/ic_coach_boy2.png?sign=a5fa59ac2acdb8cea60fb7cc833804cc&t=1559047451',
     skill: ['拳击', '自由搏击', '心肌训练'],
     price: '150/节',
     birth: '解放军部队',
@@ -34,7 +27,7 @@ const coachList = [
   {
     id: 400102,
     name: 'AliceLina',
-    avatar: ic_coach_two,
+    avatar: 'https://7163-qcitycloud-cffa3a-1258938492.tcb.qcloud.la/coach/ic_coach_grils.png?sign=c34c943f02af13c7e8a2f341943fa40e&t=1559047462',
     skill: ['LesMills', '燃脂', '瑜伽'],
     price: '120/节',
     birth: '北京体美工作室',
@@ -43,7 +36,7 @@ const coachList = [
   {
     id: 400103,
     name: 'Eleven',
-    avatar: ic_coach_three,
+    avatar: 'https://7163-qcitycloud-cffa3a-1258938492.tcb.qcloud.la/coach/ic_coach_boy1.png?sign=2a68859b25d963f1062ed91fc91604ef&t=1559047386',
     skill: ['体能', '燃脂', '矫正训练'],
     price: '100/节',
     birth: '北京体育大学',

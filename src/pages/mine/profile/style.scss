@@ -1,0 +1,299 @@
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100vw;
+  height: 100vh;
+}
+
+//>>>>>>>>>>>>>>>>>>>>>>>>> FeedBack Style >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+.feedback-title-view {
+  display: inline-flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 30PX;
+  justify-content: center;
+  padding-left: 10PX;
+  padding-right: 10PX;
+}
+
+.feedback-content-view {
+  display: inline-flex;
+  flex-direction: column;
+  width: 96vw;
+  height: 220PX;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  border-radius: 2PX;
+}
+
+.feedback-content-input {
+  font-size: small;
+  color: #5b5b5b;
+}
+
+.feedback-submit-btn {
+  position: absolute;
+  bottom: 0;
+  display: inline-flex;
+  flex-direction: row;
+  flex: 1;
+  width: 100vw;
+  height: 45PX;
+  align-items: center;
+  background-color: #37c;
+}
+
+.feedback-submit-btn-part {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.feedback-submit-line {
+  width: 1PX;
+  height: 45PX;
+  background-color: #fff;
+}
+
+.feedback-title-tips-txt {
+  font-size: small;
+  color: #333333;
+}
+
+.feedback-content-input-placeholder-txt {
+  font-size: small;
+  color: #BDBDBD;
+}
+
+.feedback-submit-btn-txt {
+  font-size: small;
+  color: #FFF;
+  margin-left: 5PX;
+}
+
+
+//<<<<<<<<<<<<<<<<<<<<<<<<<<< Message Style <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+.profile-message {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  height: 100vh;
+}
+
+.message-scrollView {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.message-card-content {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+  width: 94vw;
+  margin: 5PX 3vw 20PX;
+}
+
+.message-card-content-view {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+  width: 94vw;
+  margin-top: 5PX;
+  border-radius: 2PX;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.message-card-time {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40vw;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 2PX;
+}
+
+.running-content-item-title {
+  display: inline-flex;
+  flex-direction: row;
+  flex: 1;
+  align-items: center;
+}
+
+.running-content-item-burn {
+  display: inline-flex;
+  flex-direction: row;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.running-item-place {
+  display: inline-flex;
+  flex-direction: row;
+  flex: 1;
+  align-items: center;
+}
+
+.running-time-icon {
+  width: 20PX;
+  height: 20PX;
+  margin: 5PX;
+}
+
+.running-item-title-txt {
+  font-size: small;
+  color: #5b5b5b;
+}
+
+.running-item-burn-txt {
+  font-size: small;
+  color: #5b5b5b;
+  margin-right: 5PX;
+}
+
+.running-item-tips-txt {
+  font-size: x-large;
+  color: #333333;
+}
+
+.message-card-time-txt {
+  font-size: small;
+  color: #333333;
+}
+
+.message-card-title-txt {
+  font-size: medium;
+  font-weight: bold;
+  color: #333333;
+  margin: 5PX;
+}
+
+.message-card-content-txt {
+  font-size: small;
+  color: #5b5b5b;
+  margin-left: 5PX;
+  margin-right: 5PX;
+  margin-bottom: 5PX;
+}
+
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Detail Style <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+.detail-calendar-page {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+.detail-calender-head-bar {
+  display: inline-flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 120PX;
+}
+
+.detail-calendar-desc-bar {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100vw;
+  height: 40PX;
+}
+
+.detail-calendar-column-part {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-calendar-line {
+  width: 94vw;
+  height: 1PX;
+  background-color: rgba(0, 0, 0, 0.05);
+  margin-left: 3vw;
+  margin-right: 3vw;
+  margin-bottom: 5PX;
+}
+
+.detail-calendar-column-txt {
+  font-size: small;
+  color: #5b5b5b;
+}
+
+.detail-calendar-head-part {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.detail-calendar-row-bar {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  width: 94vw;
+  height: 5PX;
+  margin-left: 3vw;
+  margin-right: 3vw;
+}
+
+.detail-calendar-bottom {
+  width: 100vw;
+  height: 50PX;
+  background-color: #fff;
+}
+
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+.profile-invitation {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  height: 100vh;
+}
+
+.invitation-head-view {
+  display: inline-flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 50vw;
+  align-items: center;
+  justify-content: center;
+}
+
+.invitation-head-view-part {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.invitation-head-line {
+  width: 1PX;
+  height: 30vw;
+  background-color: #efefef;
+}
+
+.invitation-head-txt {
+  font-size: 40PT;
+  color: #333333;
+}
+
+.invitation-head-tips {
+  font-size: small;
+  color: #5b5b5b;
+  margin-top: 15PX;
+}

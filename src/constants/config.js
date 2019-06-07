@@ -114,6 +114,17 @@ export const activityInfo = [
   '周燃脂第一名，最高可享受景甜矿泉水一箱',
 ]
 
+export const pType = {
+  RESERVATION: 0,
+  EXERCISES: 1,
+  BLOCK_INVITES: 2,
+  PLAN_UPDATE: 3,
+  DEFINE_MUTEX: 4,
+  SYSTEM_MESSAGE: 5,
+  AUTO_INCREMENT: 6,
+  PUBLIC_MENU_CONTACT: 7,
+}
+
 /***
  *
  * @type {
