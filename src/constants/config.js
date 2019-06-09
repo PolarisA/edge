@@ -71,6 +71,8 @@ export const localArea = [
 
 export const deviceInfo = ['淋浴', '跑步机', '椭圆机', '扩胸机', '陀螺仪']
 
+export const rewardType = ['邀请码','分享链接','校园推广','线下']
+
 export const deviceIcon = {
   SHOWER: ic_shower,
   TREADMILL: ic_treadmil,

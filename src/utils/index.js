@@ -1,5 +1,5 @@
 import Mock from "mockjs";
-import { localArea } from "../constants/config";
+import {localArea, rewardType} from "../constants/config";
 
 export const promisify = (func, ctx) => {
   // 返回一个新的function
@@ -250,6 +250,27 @@ export const setMockData = (value, type) => {
       return mock
     }
 
+    case 'REWARD': {
+      for (let i = 0; i < value; i++) {
+        const _origin = parseInt(Math.random() * 4)
+
+        let date = '2019' + Mock.Random.datetime('-MM-dd')
+        let formId = parseInt(Math.random() * 1000000)
+        let origin = _origin
+        let price = parseInt(Math.random() * 100)
+        let type = rewardType[_origin]
+
+        const props = {
+          date,
+          formId,
+          origin,
+          price,
+          type
+        }
+        mock.push(props)
+      }
+      return mock
+    }
     default:
       break
   }

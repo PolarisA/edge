@@ -287,6 +287,58 @@
   background-color: #efefef;
 }
 
+.invitation-title-bar {
+  display: inline-flex;
+  flex-direction: column;
+  width: 94vw;
+  height: 30PX;
+  margin-left: 3vw;
+  margin-right: 3vw;
+}
+
+.invitation-item-view {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  width: 94vw;
+  height: 45PX;
+  margin: 5PX 3vw;
+  border-radius: 20PX;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.invitation-item-card-view {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 4;
+  height: 45PX;
+  justify-content: center;
+}
+
+.invitation-item-card-small-view {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 3;
+  height: 45PX;
+  justify-content: center;
+}
+
+.invitation-item-price-txt {
+  font-size: small;
+  color: rgba(237, 78, 65);
+}
+
+.invitation-title-txt {
+  font-size: small;
+  color: #5b5b5b;
+}
+
+.invitation-item-title-txt {
+  font-size: small;
+  color: #5b5b5b;
+  margin-left: 10PX;
+}
+
 .invitation-head-txt {
   font-size: 40PT;
   color: #333333;
